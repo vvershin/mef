@@ -21,7 +21,7 @@ export const filterEvents = (events: Event[], filters: Filters): Event[] => {
       const searchLower = filters.search.toLowerCase();
       const matchesSearch = 
         event.title.toLowerCase().includes(searchLower) ||
-        event.description.toLowerCase().includes(searchLower) ||
+        event.description?.toLowerCase().includes(searchLower) ||
         event.location?.toLowerCase().includes(searchLower) ||
         event.tags?.some(tag => tag.toLowerCase().includes(searchLower));
       
