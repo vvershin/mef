@@ -50,8 +50,22 @@
       "id": 3,
       "createdAt": "2026-03-02T07:51:46.866Z",
       "updatedAt": "2026-03-02T07:51:46.866Z"
+    },
+    {
+      "title": "Кулинарный мастер-класс «Французская классика»",
+      "description": "Готовим французские блюда",
+      "category": "workshop",
+      "date": "2026-03-02",
+      "time": "19:00",
+      "isFree": false,
+      "registrationUrl": "https://novikovspace.com/school/masterclasses#session=16533",
+      "organizer": "Novikov School",
+      "isFeatured": false,
+      "id": 4,
+      "createdAt": "2026-03-02T11:33:40.340Z",
+      "updatedAt": "2026-03-02T11:33:40.340Z"
     }
   ],
-  "lastUpdated": "2026-03-02T07:51:51.113Z",
+  "lastUpdated": "2026-03-02T11:33:50.882Z",
   "version": "1.0.0"
 }
