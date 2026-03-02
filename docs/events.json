@@ -1,0 +1,26 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "title": "Пример мероприятия",
+      "description": "Это пример мероприятия. Замените этот файл на реальные данные из админ-панели.",
+      "category": "concert",
+      "date": "2026-03-15",
+      "time": "19:00",
+      "location": "Клуб Космонавт",
+      "address": "ул. Ленина, 10",
+      "price": "500-1000₽",
+      "isFree": false,
+      "registrationUrl": "https://example.com",
+      "imageUrl": "https://via.placeholder.com/400x300",
+      "organizer": "Организатор",
+      "contactInfo": "+7 (xxx) xxx-xx-xx",
+      "tags": ["музыка", "концерт"],
+      "isFeatured": true,
+      "createdAt": "2026-03-01T00:00:00.000Z",
+      "updatedAt": "2026-03-01T00:00:00.000Z"
+    }
+  ],
+  "lastUpdated": "2026-03-01T00:00:00.000Z",
+  "version": "1.0.0"
+}

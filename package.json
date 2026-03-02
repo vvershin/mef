@@ -1,0 +1,17 @@
+{
+  "name": "telegram-events-manager",
+  "version": "1.0.0",
+  "description": "Serverless event management system with Telegram Mini App",
+  "private": true,
+  "workspaces": [
+    "admin",
+    "miniapp"
+  ],
+  "scripts": {
+    "admin": "cd admin && npm run dev",
+    "miniapp": "cd miniapp && npm run dev",
+    "build:admin": "cd admin && npm run build",
+    "build:miniapp": "cd miniapp && npm run build",
+    "deploy": "npm run build:miniapp && npm run export-data"
+  }
+}
