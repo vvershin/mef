@@ -33,6 +33,8 @@ jobs:
           npm install
 
       - name: Build
+        env:
+          VITE_EVENTS_URL: https://vvershin.github.io/mef/events.json
         run: |
           cd miniapp
           npm run build
