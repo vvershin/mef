@@ -7,7 +7,7 @@ import { useTelegram } from './hooks/useTelegram';
 import { useCloudStorage } from './hooks/useCloudStorage';
 import { fetchEvents, cacheEvents } from './api/events';
 import { filterEvents, sortEvents } from './utils/filters';
-import { Star, RefreshCw } from 'lucide-react';
+import { Star, RefreshCw, Filter } from 'lucide-react';
 
 function App() {
   const { tg } = useTelegram();
@@ -60,9 +60,9 @@ function App() {
       tg.HapticFeedback.impactOccurred('light');
     }
     
-    setFavorites((prev: number[]) => 
+    setFavorites((prev) => 
       prev.includes(id) 
-        ? prev.filter((fid: number) => fid !== id)
+        ? prev.filter((fid) => fid !== id)
         : [...prev, id]
     );
   };

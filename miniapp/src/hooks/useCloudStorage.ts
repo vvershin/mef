@@ -23,16 +23,17 @@ export const useCloudStorage = <T>(key: string, defaultValue: T) => {
     });
   }, [key, tg]);
 
-  const updateValue = useCallback((newValue: T) => {
-    setValue(newValue);
+  const updateValue = useCallback((newValue: T | ((prev: T) => T)) => {
+    const nextValue = typeof newValue === 'function' ? (newValue as (prev: T) => T)(value) : newValue;
+    setValue(nextValue);
     if (tg?.CloudStorage) {
-      tg.CloudStorage.setItem(key, JSON.stringify(newValue), (error) => {
+      tg.CloudStorage.setItem(key, JSON.stringify(nextValue), (error) => {
         if (error) {
           console.error('Error saving to cloud storage:', error);
         }
       });
     }
-  }, [key, tg]);
+  }, [key, tg, value]);
 
   return [value, updateValue, loading] as const;
 };
