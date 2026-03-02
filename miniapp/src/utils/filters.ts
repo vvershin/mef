@@ -78,9 +78,6 @@ export const filterEvents = (events: Event[], filters: Filters): Event[] => {
 
 export const sortEvents = (events: Event[]): Event[] => {
   return [...events].sort((a, b) => {
-    if (a.isFeatured && !b.isFeatured) return -1;
-    if (!a.isFeatured && b.isFeatured) return 1;
-    
     const dateA = new Date(a.date).getTime();
     const dateB = new Date(b.date).getTime();
     return dateA - dateB;

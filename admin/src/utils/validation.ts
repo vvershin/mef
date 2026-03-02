@@ -7,9 +7,6 @@ export const validateEvent = (event: Partial<Event>): string[] => {
     errors.push('Название обязательно');
   }
 
-  if (!event.description || event.description.trim().length === 0) {
-    errors.push('Описание обязательно');
-  }
 
   if (!event.category) {
     errors.push('Категория обязательна');

@@ -1,33 +1,33 @@
 export enum EventCategory {
-  CONCERT = 'concert',
+  LANGUAGE = 'language',
+  ART = 'art',
   THEATER = 'theater',
-  EXHIBITION = 'exhibition',
+  MUSIC = 'music',
   SPORT = 'sport',
+  FOOD = 'food',
   FESTIVAL = 'festival',
-  WORKSHOP = 'workshop',
-  CONFERENCE = 'conference',
-  PARTY = 'party',
-  CINEMA = 'cinema',
-  OTHER = 'other'
+  ENTERTAINMENT = 'entertainment',
+  CREATIVITY = 'creativity',
+  FOR_KIDS = 'for_kids'
 }
 
 export const CATEGORY_LABELS: Record<EventCategory, string> = {
-  [EventCategory.CONCERT]: '🎵 Концерт',
+  [EventCategory.LANGUAGE]: '🗣️ Язык',
+  [EventCategory.ART]: '🏛️ Искусство',
   [EventCategory.THEATER]: '🎭 Театр',
-  [EventCategory.EXHIBITION]: '🖼️ Выставка',
+  [EventCategory.MUSIC]: '🎤 Музыка',
   [EventCategory.SPORT]: '⚽ Спорт',
+  [EventCategory.FOOD]: '🍰 Вкусненькое',
   [EventCategory.FESTIVAL]: '🎪 Фестиваль',
-  [EventCategory.WORKSHOP]: '🎨 Мастер-класс',
-  [EventCategory.CONFERENCE]: '💼 Конференция',
-  [EventCategory.PARTY]: '🎉 Вечеринка',
-  [EventCategory.CINEMA]: '🎬 Кино',
-  [EventCategory.OTHER]: '📌 Другое'
+  [EventCategory.ENTERTAINMENT]: '🎉 Развлечения',
+  [EventCategory.CREATIVITY]: '🎨 Творчество',
+  [EventCategory.FOR_KIDS]: '🧸 Для детей'
 };
 
 export interface Event {
   id: number;
   title: string;
-  description: string;
+  description?: string;
   category: EventCategory;
   
   date: string;

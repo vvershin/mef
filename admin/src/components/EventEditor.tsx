@@ -87,13 +87,13 @@ export const EventEditor: React.FC<EventEditorProps> = ({ event, onSave, onClose
 
             <div className="md:col-span-2">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Описание *
+                Описание
               </label>
               <textarea
-                {...register('description', { required: true })}
+                {...register('description')}
                 rows={4}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Подробное описание мероприятия..."
+                placeholder="Подробное описание мероприятия (опционально)..."
               />
             </div>
 
