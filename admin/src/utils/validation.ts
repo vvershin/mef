@@ -28,10 +28,6 @@ export const validateEvent = (event: Partial<Event>): string[] => {
     errors.push('Некорректная ссылка на регистрацию');
   }
 
-  if (event.imageUrl && !isValidUrl(event.imageUrl)) {
-    errors.push('Некорректная ссылка на изображение');
-  }
-
   return errors;
 };
 

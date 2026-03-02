@@ -2,7 +2,7 @@ import React from 'react';
 import { Event, CATEGORY_LABELS } from '../../../shared/types';
 import { format } from 'date-fns';
 import { ru } from 'date-fns/locale';
-import { X, Calendar, Clock, MapPin, DollarSign, User, Phone, ExternalLink, Tag } from 'lucide-react';
+import { X, Calendar, Clock, MapPin, DollarSign, User, Phone, ExternalLink } from 'lucide-react';
 
 interface EventDetailsProps {
   event: Event;
@@ -102,25 +102,6 @@ export const EventDetails: React.FC<EventDetailsProps> = ({ event, onClose }) =>
             <h3 className="text-lg font-bold text-gray-900 mb-2">Описание</h3>
             <p className="text-gray-700 whitespace-pre-line">{event.description}</p>
           </div>
-
-          {event.tags && event.tags.length > 0 && (
-            <div className="mb-6">
-              <div className="flex items-center gap-2 mb-2">
-                <Tag size={18} className="text-gray-400" />
-                <h3 className="font-bold text-gray-900">Теги</h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {event.tags.map((tag, index) => (
-                  <span 
-                    key={index}
-                    className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
 
           {event.registrationUrl && (
             <button
