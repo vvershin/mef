@@ -3,14 +3,25 @@ import { Event } from '../../shared/types';
 import { EventCard } from './components/EventCard';
 import { EventDetails } from './components/EventDetails';
 import { FilterPanel, Filters } from './components/FilterPanel';
+import { VersionWarning } from './components/VersionWarning';
 import { useTelegram } from './hooks/useTelegram';
 import { useCloudStorage } from './hooks/useCloudStorage';
 import { fetchEvents, cacheEvents } from './api/events';
 import { filterEvents, sortEvents } from './utils/filters';
 import { Star, RefreshCw, Filter } from 'lucide-react';
 
+const MIN_TELEGRAM_VERSION = '6.1';
+
+const isVersionSupported = (version: string, minVersion: string): boolean => {
+  const [currentMajor, currentMinor] = version.split('.').map(Number);
+  const [minMajor, minMinor] = minVersion.split('.').map(Number);
+  
+  return currentMajor > minMajor || (currentMajor === minMajor && currentMinor >= minMinor);
+};
+
 function App() {
   const { tg } = useTelegram();
+  const [showVersionWarning, setShowVersionWarning] = useState(false);
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -43,7 +54,13 @@ function App() {
 
   useEffect(() => {
     loadEvents();
-  }, []);
+    
+    // Проверка версии Telegram
+    const version = tg?.version || '6.0';
+    if (!isVersionSupported(version, MIN_TELEGRAM_VERSION)) {
+      setShowVersionWarning(true);
+    }
+  }, [tg]);
 
   const filteredEvents = useMemo(() => {
     let result = filterEvents(events, filters);
@@ -211,6 +228,13 @@ function App() {
         <EventDetails
           event={selectedEvent}
           onClose={() => setSelectedEvent(null)}
+        />
+      )}
+
+      {showVersionWarning && (
+        <VersionWarning
+          currentVersion={tg?.version || '6.0'}
+          minVersion={MIN_TELEGRAM_VERSION}
         />
       )}
     </div>
