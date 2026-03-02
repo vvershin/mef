@@ -1,6 +1,6 @@
 import React from 'react';
 import { EventCategory, CATEGORY_LABELS } from '../../../shared/types';
-import { Filter, X } from 'lucide-react';
+import { X } from 'lucide-react';
 
 export interface Filters {
   category: EventCategory | 'all';

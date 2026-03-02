@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 export const useTelegram = () => {
   const [tg] = useState(() => window.Telegram?.WebApp);
-  const [user, setUser] = useState(tg?.initDataUnsafe?.user);
+  const [user] = useState(tg?.initDataUnsafe?.user);
 
   useEffect(() => {
     if (tg) {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Event } from '../../shared/types';
 import { EventCard } from './components/EventCard';
 import { EventDetails } from './components/EventDetails';
@@ -7,10 +7,10 @@ import { useTelegram } from './hooks/useTelegram';
 import { useCloudStorage } from './hooks/useCloudStorage';
 import { fetchEvents, cacheEvents } from './api/events';
 import { filterEvents, sortEvents } from './utils/filters';
-import { Filter, Star, RefreshCw } from 'lucide-react';
+import { Star, RefreshCw } from 'lucide-react';
 
 function App() {
-  const { tg, user } = useTelegram();
+  const { tg } = useTelegram();
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -18,7 +18,7 @@ function App() {
   const [showFilters, setShowFilters] = useState(false);
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
   
-  const [favorites, setFavorites, favoritesLoading] = useCloudStorage<number[]>('favorites', []);
+  const [favorites, setFavorites] = useCloudStorage<number[]>('favorites', []);
   const [filters, setFilters] = useState<Filters>({
     category: 'all',
     dateRange: 'all',
@@ -60,9 +60,9 @@ function App() {
       tg.HapticFeedback.impactOccurred('light');
     }
     
-    setFavorites(prev => 
+    setFavorites((prev: number[]) => 
       prev.includes(id) 
-        ? prev.filter(fid => fid !== id)
+        ? prev.filter((fid: number) => fid !== id)
         : [...prev, id]
     );
   };
