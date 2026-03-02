@@ -129,15 +129,8 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="sticky top-0 bg-white z-10">
-        <img 
-          src="/header.png" 
-          alt="Афиша мероприятий" 
-          className="w-full h-auto"
-        />
-        
-        <div className="px-4 py-3 border-b border-gray-200">
-          <div className="flex gap-2">
+      <div className="sticky top-0 bg-white border-b border-gray-200 px-4 py-3 z-10">
+        <div className="flex gap-2">
           <button
             onClick={() => setShowFilters(true)}
             className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg flex-1"
@@ -164,7 +157,6 @@ function App() {
               <span className="text-sm font-medium">{favorites.length}</span>
             )}
           </button>
-        </div>
         </div>
       </div>
 
