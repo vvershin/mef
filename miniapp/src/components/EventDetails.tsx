@@ -32,16 +32,6 @@ export const EventDetails: React.FC<EventDetailsProps> = ({ event, onClose }) =>
       </div>
 
       <div className="pb-6">
-        {event.imageUrl && (
-          <div className="w-full h-64 overflow-hidden">
-            <img 
-              src={event.imageUrl} 
-              alt={event.title}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        )}
-
         <div className="px-4 pt-4">
           <div className="mb-4">
             <span className="inline-block text-xs font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full">

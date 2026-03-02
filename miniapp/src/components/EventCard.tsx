@@ -25,16 +25,6 @@ export const EventCard: React.FC<EventCardProps> = ({
       className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition-shadow"
       onClick={() => onClick(event)}
     >
-      {event.imageUrl && (
-        <div className="h-48 overflow-hidden">
-          <img 
-            src={event.imageUrl} 
-            alt={event.title}
-            className="w-full h-full object-cover"
-          />
-        </div>
-      )}
-      
       <div className="p-4">
         <div className="flex justify-between items-start mb-2">
           <span className="text-xs font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded">

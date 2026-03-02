@@ -41,7 +41,14 @@ export const VersionWarning: React.FC<VersionWarningProps> = ({ currentVersion, 
         </div>
         
         <button
-          onClick={() => window.Telegram?.WebApp?.close()}
+          onClick={() => {
+            const tg = window.Telegram?.WebApp;
+            if (tg) {
+              tg.close();
+            } else {
+              window.close();
+            }
+          }}
           className="w-full mt-6 px-4 py-3 bg-blue-500 text-white rounded-lg font-medium hover:bg-blue-600"
         >
           Закрыть
