@@ -29,7 +29,6 @@ export const EventEditor: React.FC<EventEditorProps> = ({ event, onSave, onClose
       price: '',
       isFree: false,
       registrationUrl: '',
-      imageUrl: '',
       organizer: '',
       contactInfo: '',
       tags: [],
@@ -49,7 +48,6 @@ export const EventEditor: React.FC<EventEditorProps> = ({ event, onSave, onClose
       address: data.address || undefined,
       price: data.isFree ? undefined : (data.price || undefined),
       registrationUrl: data.registrationUrl || undefined,
-      imageUrl: data.imageUrl || undefined,
       organizer: data.organizer || undefined,
       contactInfo: data.contactInfo || undefined,
     };

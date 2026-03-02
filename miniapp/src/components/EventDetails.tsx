@@ -31,8 +31,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({ event, onClose }) =>
         </button>
       </div>
 
-      <div className="pb-6">
-        <div className="px-4 pt-4">
+      <div className="px-4 py-4">
           <div className="mb-4">
             <span className="inline-block text-xs font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
               {categoryLabel}
@@ -132,7 +131,6 @@ export const EventDetails: React.FC<EventDetailsProps> = ({ event, onClose }) =>
               Регистрация / Билеты
             </button>
           )}
-        </div>
       </div>
     </div>
   );
