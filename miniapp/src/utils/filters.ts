@@ -29,6 +29,8 @@ export const filterEvents = (events: Event[], filters: Filters): Event[] => {
 
     const eventStart = new Date(event.date);
     const eventEnd = event.endDate ? new Date(event.endDate) : eventStart;
+
+    if (eventEnd < startOfToday()) return false;
     
     if (filters.dateRange !== 'all') {
       let dateMatches = false;

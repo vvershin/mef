@@ -1,15 +1,18 @@
 import { useState, useEffect, useMemo } from 'react';
-import { Event, Place } from '../../shared/types';
+import { Event, Place, OtherCityPlace } from '../../shared/types';
 import { EventCard } from './components/EventCard';
 import { EventDetails } from './components/EventDetails';
 import { FilterPanel, Filters } from './components/FilterPanel';
 import { PlaceCard } from './components/PlaceCard';
 import { PlaceFilterPanel, PlaceFilters } from './components/PlaceFilterPanel';
+import { OtherCityCard } from './components/OtherCityCard';
+import { OtherCityFilterPanel, OtherCityFilters } from './components/OtherCityFilterPanel';
 import { VersionWarning } from './components/VersionWarning';
 import { useTelegram } from './hooks/useTelegram';
 import { useCloudStorage } from './hooks/useCloudStorage';
 import { fetchEvents, cacheEvents } from './api/events';
 import { fetchPlaces, cachePlaces } from './api/places';
+import { fetchOtherCities, cacheOtherCities } from './api/otherCities';
 import { filterEvents, sortEvents } from './utils/filters';
 import { Star, Filter, ArrowLeft } from 'lucide-react';
 
@@ -51,6 +54,14 @@ function App() {
   const [showPlaceFavoritesOnly, setShowPlaceFavoritesOnly] = useState(false);
   const [placeFilters, setPlaceFilters] = useState<PlaceFilters>({ category: 'all' });
 
+  const [otherCityPlaces, setOtherCityPlaces] = useState<OtherCityPlace[]>([]);
+  const [otherCitiesLoading, setOtherCitiesLoading] = useState(false);
+  const [otherCitiesError, setOtherCitiesError] = useState<string | null>(null);
+  const [showOtherCityFilters, setShowOtherCityFilters] = useState(false);
+  const [showOtherCityFavoritesOnly, setShowOtherCityFavoritesOnly] = useState(false);
+  const [otherCityFilters, setOtherCityFilters] = useState<OtherCityFilters>({ category: 'all', city: 'all' });
+  const [otherCityFavorites, setOtherCityFavorites] = useCloudStorage<number[]>('other_city_favorites', []);
+
   const loadEvents = async () => {
     try {
       setLoading(true);
@@ -81,9 +92,25 @@ function App() {
     }
   };
 
+  const loadOtherCities = async () => {
+    try {
+      setOtherCitiesLoading(true);
+      setOtherCitiesError(null);
+      const data = await fetchOtherCities();
+      setOtherCityPlaces(data.places);
+      cacheOtherCities(data);
+    } catch (err) {
+      setOtherCitiesError('Не удалось загрузить места');
+      console.error(err);
+    } finally {
+      setOtherCitiesLoading(false);
+    }
+  };
+
   useEffect(() => {
     loadEvents();
     loadPlaces();
+    loadOtherCities();
     
     // Проверка версии Telegram
     const version = tg?.version || '6.0';
@@ -112,6 +139,32 @@ function App() {
     }
     return result;
   }, [places, placeFilters, showPlaceFavoritesOnly, placeFavorites]);
+
+  const availableCities = useMemo(() => {
+    const cities = otherCityPlaces.map(p => p.city).filter(Boolean) as string[];
+    return Array.from(new Set(cities)).sort();
+  }, [otherCityPlaces]);
+
+  const filteredOtherCityPlaces = useMemo(() => {
+    let result = otherCityPlaces;
+    if (otherCityFilters.category !== 'all') {
+      result = result.filter(p => p.category === otherCityFilters.category);
+    }
+    if (otherCityFilters.city !== 'all') {
+      result = result.filter(p => p.city === otherCityFilters.city);
+    }
+    if (showOtherCityFavoritesOnly) {
+      result = result.filter(p => otherCityFavorites.includes(p.id));
+    }
+    return result;
+  }, [otherCityPlaces, otherCityFilters, showOtherCityFavoritesOnly, otherCityFavorites]);
+
+  const toggleOtherCityFavorite = (id: number) => {
+    if (tg?.HapticFeedback) tg.HapticFeedback.impactOccurred('light');
+    setOtherCityFavorites((prev) =>
+      prev.includes(id) ? prev.filter((fid) => fid !== id) : [...prev, id]
+    );
+  };
 
   const toggleFavorite = (id: number) => {
     if (tg?.HapticFeedback) {
@@ -202,8 +255,7 @@ function App() {
     );
   }
 
-  if (screen === 'places-moscow' || screen === 'other-cities') {
-    const cityPlaces = filteredPlaces;
+  if (screen === 'places-moscow') {
     const placeFilterActive = placeFilters.category !== 'all';
 
     return (
@@ -216,7 +268,6 @@ function App() {
             >
               <ArrowLeft size={20} />
             </button>
-
             <button
               onClick={() => setShowPlaceFilters(true)}
               className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg flex-1"
@@ -227,7 +278,6 @@ function App() {
                 <span className="bg-white text-blue-500 px-2 py-0.5 rounded-full text-xs font-bold">1</span>
               )}
             </button>
-
             <button
               onClick={() => setShowPlaceFavoritesOnly(!showPlaceFavoritesOnly)}
               className={`flex items-center gap-2 px-4 py-2 rounded-lg shrink-0 ${
@@ -241,7 +291,6 @@ function App() {
             </button>
           </div>
         </div>
-
         <div className="p-4">
           {placesLoading && places.length === 0 ? (
             <div className="flex justify-center py-12">
@@ -250,49 +299,103 @@ function App() {
           ) : placesError && places.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-red-600 mb-4">{placesError}</p>
-              <button onClick={loadPlaces} className="px-4 py-2 bg-blue-500 text-white rounded-lg">
-                Попробовать снова
-              </button>
+              <button onClick={loadPlaces} className="px-4 py-2 bg-blue-500 text-white rounded-lg">Попробовать снова</button>
             </div>
-          ) : cityPlaces.length === 0 ? (
+          ) : filteredPlaces.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-gray-500 mb-2">
-                {showPlaceFavoritesOnly ? 'Нет избранных мест' : 'Места не найдены'}
-              </p>
+              <p className="text-gray-500 mb-2">{showPlaceFavoritesOnly ? 'Нет избранных мест' : 'Места не найдены'}</p>
               {(placeFilterActive || showPlaceFavoritesOnly) && (
-                <button
-                  onClick={() => {
-                    setShowPlaceFavoritesOnly(false);
-                    setPlaceFilters({ category: 'all' });
-                  }}
-                  className="text-blue-500 text-sm"
-                >
-                  Сбросить фильтры
-                </button>
+                <button onClick={() => { setShowPlaceFavoritesOnly(false); setPlaceFilters({ category: 'all' }); }} className="text-blue-500 text-sm">Сбросить фильтры</button>
               )}
             </div>
           ) : (
             <>
-              <p className="text-sm text-gray-600 mb-4">Найдено мест: {cityPlaces.length}</p>
+              <p className="text-sm text-gray-600 mb-4">Найдено мест: {filteredPlaces.length}</p>
               <div className="grid grid-cols-1 gap-4">
-                {cityPlaces.map(place => (
-                  <PlaceCard
-                    key={place.id}
-                    place={place}
-                    isFavorite={placeFavorites.includes(place.id)}
-                    onToggleFavorite={togglePlaceFavorite}
-                  />
+                {filteredPlaces.map(place => (
+                  <PlaceCard key={place.id} place={place} isFavorite={placeFavorites.includes(place.id)} onToggleFavorite={togglePlaceFavorite} />
                 ))}
               </div>
             </>
           )}
         </div>
-
         {showPlaceFilters && (
-          <PlaceFilterPanel
-            filters={placeFilters}
-            onFiltersChange={setPlaceFilters}
-            onClose={() => setShowPlaceFilters(false)}
+          <PlaceFilterPanel filters={placeFilters} onFiltersChange={setPlaceFilters} onClose={() => setShowPlaceFilters(false)} />
+        )}
+      </div>
+    );
+  }
+
+  if (screen === 'other-cities') {
+    const activeFilterCount = (otherCityFilters.category !== 'all' ? 1 : 0) + (otherCityFilters.city !== 'all' ? 1 : 0);
+
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <div className="sticky top-0 bg-white border-b border-gray-200 px-4 py-3 z-10">
+          <div className="flex gap-2">
+            <button
+              onClick={handleBackToHome}
+              className="flex items-center justify-center p-2 rounded-lg bg-gray-100 text-gray-700 shrink-0"
+            >
+              <ArrowLeft size={20} />
+            </button>
+            <button
+              onClick={() => setShowOtherCityFilters(true)}
+              className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg flex-1"
+            >
+              <Filter size={18} />
+              Фильтры
+              {activeFilterCount > 0 && (
+                <span className="bg-white text-blue-500 px-2 py-0.5 rounded-full text-xs font-bold">{activeFilterCount}</span>
+              )}
+            </button>
+            <button
+              onClick={() => setShowOtherCityFavoritesOnly(!showOtherCityFavoritesOnly)}
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg shrink-0 ${
+                showOtherCityFavoritesOnly ? 'bg-yellow-500 text-white' : 'bg-gray-100 text-gray-700'
+              }`}
+            >
+              <Star size={18} fill={showOtherCityFavoritesOnly ? 'currentColor' : 'none'} />
+              {otherCityFavorites.length > 0 && (
+                <span className="text-sm font-medium">{otherCityFavorites.length}</span>
+              )}
+            </button>
+          </div>
+        </div>
+        <div className="p-4">
+          {otherCitiesLoading && otherCityPlaces.length === 0 ? (
+            <div className="flex justify-center py-12">
+              <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-500" />
+            </div>
+          ) : otherCitiesError && otherCityPlaces.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-red-600 mb-4">{otherCitiesError}</p>
+              <button onClick={loadOtherCities} className="px-4 py-2 bg-blue-500 text-white rounded-lg">Попробовать снова</button>
+            </div>
+          ) : filteredOtherCityPlaces.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-gray-500 mb-2">{showOtherCityFavoritesOnly ? 'Нет избранных мест' : 'Места не найдены'}</p>
+              {(activeFilterCount > 0 || showOtherCityFavoritesOnly) && (
+                <button onClick={() => { setShowOtherCityFavoritesOnly(false); setOtherCityFilters({ category: 'all', city: 'all' }); }} className="text-blue-500 text-sm">Сбросить фильтры</button>
+              )}
+            </div>
+          ) : (
+            <>
+              <p className="text-sm text-gray-600 mb-4">Найдено мест: {filteredOtherCityPlaces.length}</p>
+              <div className="grid grid-cols-1 gap-4">
+                {filteredOtherCityPlaces.map(place => (
+                  <OtherCityCard key={place.id} place={place} isFavorite={otherCityFavorites.includes(place.id)} onToggleFavorite={toggleOtherCityFavorite} />
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+        {showOtherCityFilters && (
+          <OtherCityFilterPanel
+            filters={otherCityFilters}
+            availableCities={availableCities}
+            onFiltersChange={setOtherCityFilters}
+            onClose={() => setShowOtherCityFilters(false)}
           />
         )}
       </div>

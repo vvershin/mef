@@ -1,7 +1,8 @@
-import { Event, EventsDatabase, Place, PlacesDatabase } from '../../../shared/types';
+import { Event, EventsDatabase, Place, PlacesDatabase, OtherCityPlace, OtherCitiesDatabase } from '../../../shared/types';
 
 const STORAGE_KEY = 'events_database';
 const PLACES_STORAGE_KEY = 'places_database';
+const OTHER_CITIES_STORAGE_KEY = 'other_cities_database';
 
 export const loadEvents = (): Event[] => {
   try {
@@ -125,6 +126,72 @@ export const downloadPlacesJSON = (places: Place[]): void => {
   a.click();
   document.body.removeChild(a);
   URL.revokeObjectURL(url);
+};
+
+export const loadOtherCities = (): OtherCityPlace[] => {
+  try {
+    const data = localStorage.getItem(OTHER_CITIES_STORAGE_KEY);
+    if (!data) return [];
+    const db: OtherCitiesDatabase = JSON.parse(data);
+    return db.places;
+  } catch (error) {
+    console.error('Error loading other cities:', error);
+    return [];
+  }
+};
+
+export const saveOtherCities = (places: OtherCityPlace[]): void => {
+  try {
+    const db: OtherCitiesDatabase = {
+      places,
+      lastUpdated: new Date().toISOString(),
+      version: '1.0.0',
+    };
+    localStorage.setItem(OTHER_CITIES_STORAGE_KEY, JSON.stringify(db, null, 2));
+  } catch (error) {
+    console.error('Error saving other cities:', error);
+    throw error;
+  }
+};
+
+export const downloadOtherCitiesJSON = (places: OtherCityPlace[]): void => {
+  const db: OtherCitiesDatabase = {
+    places,
+    lastUpdated: new Date().toISOString(),
+    version: '1.0.0',
+  };
+  const json = JSON.stringify(db, null, 2);
+  const blob = new Blob([json], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'other-cities.json';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+};
+
+export const importOtherCitiesFromJSON = (file: File): Promise<OtherCityPlace[]> => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const data = JSON.parse(e.target?.result as string);
+        if (data.places && Array.isArray(data.places)) {
+          resolve(data.places);
+        } else if (Array.isArray(data)) {
+          resolve(data);
+        } else {
+          reject(new Error('Invalid JSON format'));
+        }
+      } catch (error) {
+        reject(error);
+      }
+    };
+    reader.onerror = () => reject(reader.error);
+    reader.readAsText(file);
+  });
 };
 
 export const importPlacesFromJSON = (file: File): Promise<Place[]> => {

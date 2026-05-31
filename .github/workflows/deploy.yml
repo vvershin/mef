@@ -36,6 +36,7 @@ jobs:
         env:
           VITE_EVENTS_URL: https://vvershin.github.io/mef/events.json
           VITE_PLACES_URL: https://vvershin.github.io/mef/places.json
+          VITE_OTHER_CITIES_URL: https://vvershin.github.io/mef/other-cities.json
         run: |
           cd miniapp
           npm run build
@@ -44,6 +45,7 @@ jobs:
         run: |
           cp docs/events.json miniapp/dist/
           cp docs/places.json miniapp/dist/
+          cp docs/other-cities.json miniapp/dist/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

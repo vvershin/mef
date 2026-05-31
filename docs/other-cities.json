@@ -1,0 +1,38 @@
+{
+  "places": [
+    {
+      "id": 1,
+      "title": "Alliance Française",
+      "city": "Санкт-Петербург",
+      "category": "museum",
+      "url": "https://example.com/af-spb",
+      "isFeatured": true
+    },
+    {
+      "id": 2,
+      "title": "Café Provençal",
+      "city": "Санкт-Петербург",
+      "category": "restaurant",
+      "url": "https://example.com/cafe-provencal",
+      "isFeatured": false
+    },
+    {
+      "id": 3,
+      "title": "Лучшие французские рестораны Питера",
+      "city": "Санкт-Петербург",
+      "category": "collection",
+      "url": "https://example.com/spb-french-guide",
+      "isFeatured": false
+    },
+    {
+      "id": 4,
+      "title": "Французский культурный центр",
+      "city": "Екатеринбург",
+      "category": "museum",
+      "url": "https://example.com/fcce",
+      "isFeatured": false
+    }
+  ],
+  "lastUpdated": "2026-05-31T00:00:00.000Z",
+  "version": "1.0.0"
+}

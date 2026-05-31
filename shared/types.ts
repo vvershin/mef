@@ -87,3 +87,18 @@ export interface PlacesDatabase {
   lastUpdated: string;
   version: string;
 }
+
+export interface OtherCityPlace {
+  id: number;
+  title: string;
+  city?: string;
+  category: PlaceCategory;
+  url?: string;
+  isFeatured?: boolean;
+}
+
+export interface OtherCitiesDatabase {
+  places: OtherCityPlace[];
+  lastUpdated: string;
+  version: string;
+}
