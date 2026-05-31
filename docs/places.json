@@ -1,0 +1,52 @@
+{
+  "places": [
+    {
+      "id": 1,
+      "title": "Café de Paris",
+      "address": "ул. Петровка, 17, Москва",
+      "category": "restaurant",
+      "url": "https://example.com/cafe-de-paris",
+      "isFeatured": true
+    },
+    {
+      "id": 2,
+      "title": "Brasserie Most",
+      "address": "Кузнецкий Мост, 6/3, Москва",
+      "category": "restaurant",
+      "url": "https://example.com/brasserie-most",
+      "isFeatured": false
+    },
+    {
+      "id": 3,
+      "title": "Институт французского языка и культуры",
+      "address": "ул. Поварская, 7, Москва",
+      "category": "museum",
+      "url": "https://example.com/institut-francais",
+      "isFeatured": true
+    },
+    {
+      "id": 4,
+      "title": "Галерея французского искусства «Эклер»",
+      "address": "Никитский бульвар, 12, Москва",
+      "category": "museum",
+      "url": "https://example.com/eclaire-gallery",
+      "isFeatured": false
+    },
+    {
+      "id": 5,
+      "title": "Французские рестораны Москвы — путеводитель",
+      "category": "collection",
+      "url": "https://example.com/french-restaurants-guide",
+      "isFeatured": false
+    },
+    {
+      "id": 6,
+      "title": "Где говорят по-французски: кафе и клубы",
+      "category": "collection",
+      "url": "https://example.com/french-speaking-places",
+      "isFeatured": false
+    }
+  ],
+  "lastUpdated": "2026-05-31T00:00:00.000Z",
+  "version": "1.0.0"
+}

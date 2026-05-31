@@ -35,13 +35,15 @@ jobs:
       - name: Build
         env:
           VITE_EVENTS_URL: https://vvershin.github.io/mef/events.json
+          VITE_PLACES_URL: https://vvershin.github.io/mef/places.json
         run: |
           cd miniapp
           npm run build
 
-      - name: Copy events.json to dist
+      - name: Copy data files to dist
         run: |
           cp docs/events.json miniapp/dist/
+          cp docs/places.json miniapp/dist/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

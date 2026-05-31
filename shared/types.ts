@@ -60,3 +60,30 @@ export interface EventsDatabase {
   lastUpdated: string;
   version: string;
 }
+
+export enum PlaceCategory {
+  RESTAURANT = 'restaurant',
+  MUSEUM = 'museum',
+  COLLECTION = 'collection',
+}
+
+export const PLACE_CATEGORY_LABELS: Record<PlaceCategory, string> = {
+  [PlaceCategory.RESTAURANT]: '🍽️ Ресторан',
+  [PlaceCategory.MUSEUM]: '🏛️ Музей',
+  [PlaceCategory.COLLECTION]: '📚 Подборка',
+};
+
+export interface Place {
+  id: number;
+  title: string;
+  address?: string;
+  category: PlaceCategory;
+  url?: string;
+  isFeatured?: boolean;
+}
+
+export interface PlacesDatabase {
+  places: Place[];
+  lastUpdated: string;
+  version: string;
+}

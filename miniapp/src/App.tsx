@@ -1,12 +1,15 @@
 import { useState, useEffect, useMemo } from 'react';
-import { Event } from '../../shared/types';
+import { Event, Place } from '../../shared/types';
 import { EventCard } from './components/EventCard';
 import { EventDetails } from './components/EventDetails';
 import { FilterPanel, Filters } from './components/FilterPanel';
+import { PlaceCard } from './components/PlaceCard';
+import { PlaceFilterPanel, PlaceFilters } from './components/PlaceFilterPanel';
 import { VersionWarning } from './components/VersionWarning';
 import { useTelegram } from './hooks/useTelegram';
 import { useCloudStorage } from './hooks/useCloudStorage';
 import { fetchEvents, cacheEvents } from './api/events';
+import { fetchPlaces, cachePlaces } from './api/places';
 import { filterEvents, sortEvents } from './utils/filters';
 import { Star, Filter, ArrowLeft } from 'lucide-react';
 
@@ -33,12 +36,20 @@ function App() {
   const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
   
   const [favorites, setFavorites] = useCloudStorage<number[]>('favorites', []);
+  const [placeFavorites, setPlaceFavorites] = useCloudStorage<number[]>('place_favorites', []);
   const [filters, setFilters] = useState<Filters>({
     category: 'all',
     dateRange: 'all',
     priceRange: 'all',
     search: '',
   });
+
+  const [places, setPlaces] = useState<Place[]>([]);
+  const [placesLoading, setPlacesLoading] = useState(false);
+  const [placesError, setPlacesError] = useState<string | null>(null);
+  const [showPlaceFilters, setShowPlaceFilters] = useState(false);
+  const [showPlaceFavoritesOnly, setShowPlaceFavoritesOnly] = useState(false);
+  const [placeFilters, setPlaceFilters] = useState<PlaceFilters>({ category: 'all' });
 
   const loadEvents = async () => {
     try {
@@ -55,8 +66,24 @@ function App() {
     }
   };
 
+  const loadPlaces = async () => {
+    try {
+      setPlacesLoading(true);
+      setPlacesError(null);
+      const data = await fetchPlaces();
+      setPlaces(data.places);
+      cachePlaces(data);
+    } catch (err) {
+      setPlacesError('Не удалось загрузить места');
+      console.error(err);
+    } finally {
+      setPlacesLoading(false);
+    }
+  };
+
   useEffect(() => {
     loadEvents();
+    loadPlaces();
     
     // Проверка версии Telegram
     const version = tg?.version || '6.0';
@@ -75,6 +102,17 @@ function App() {
     return sortEvents(result);
   }, [events, filters, showFavoritesOnly, favorites]);
 
+  const filteredPlaces = useMemo(() => {
+    let result = places;
+    if (placeFilters.category !== 'all') {
+      result = result.filter(p => p.category === placeFilters.category);
+    }
+    if (showPlaceFavoritesOnly) {
+      result = result.filter(p => placeFavorites.includes(p.id));
+    }
+    return result;
+  }, [places, placeFilters, showPlaceFavoritesOnly, placeFavorites]);
+
   const toggleFavorite = (id: number) => {
     if (tg?.HapticFeedback) {
       tg.HapticFeedback.impactOccurred('light');
@@ -84,6 +122,15 @@ function App() {
       prev.includes(id) 
         ? prev.filter((fid) => fid !== id)
         : [...prev, id]
+    );
+  };
+
+  const togglePlaceFavorite = (id: number) => {
+    if (tg?.HapticFeedback) {
+      tg.HapticFeedback.impactOccurred('light');
+    }
+    setPlaceFavorites((prev) =>
+      prev.includes(id) ? prev.filter((fid) => fid !== id) : [...prev, id]
     );
   };
 
@@ -121,7 +168,7 @@ function App() {
           >
             <div>
               <div className="font-bold text-gray-900 text-lg">События в Москве</div>
-              <div className="text-sm text-gray-500">Концерты, фестивали, выставки</div>
+              <div className="text-sm text-gray-500">Все французские мероприятия столицы</div>
             </div>
           </button>
 
@@ -131,7 +178,7 @@ function App() {
           >
             <div>
               <div className="font-bold text-gray-900 text-lg">Места в Москве</div>
-              <div className="text-sm text-gray-500">Рестораны, парки, музеи</div>
+              <div className="text-sm text-gray-500">Проверенные локации с французским настроением</div>
             </div>
           </button>
 
@@ -141,7 +188,7 @@ function App() {
           >
             <div>
               <div className="font-bold text-gray-900 text-lg">Другие города</div>
-              <div className="text-sm text-gray-500">События по всей России</div>
+              <div className="text-sm text-gray-500">Места и события по всей России + авторские гайды</div>
             </div>
           </button>
         </div>
@@ -156,25 +203,98 @@ function App() {
   }
 
   if (screen === 'places-moscow' || screen === 'other-cities') {
-    const title = screen === 'places-moscow' ? 'Места в Москве' : 'Другие города';
+    const cityPlaces = filteredPlaces;
+    const placeFilterActive = placeFilters.category !== 'all';
+
     return (
       <div className="min-h-screen bg-gray-50">
         <div className="sticky top-0 bg-white border-b border-gray-200 px-4 py-3 z-10">
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-2">
             <button
               onClick={handleBackToHome}
-              className="flex items-center justify-center p-2 rounded-lg bg-gray-100 text-gray-700"
+              className="flex items-center justify-center p-2 rounded-lg bg-gray-100 text-gray-700 shrink-0"
             >
               <ArrowLeft size={20} />
             </button>
-            <span className="font-semibold text-gray-900">{title}</span>
+
+            <button
+              onClick={() => setShowPlaceFilters(true)}
+              className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg flex-1"
+            >
+              <Filter size={18} />
+              Фильтры
+              {placeFilterActive && (
+                <span className="bg-white text-blue-500 px-2 py-0.5 rounded-full text-xs font-bold">1</span>
+              )}
+            </button>
+
+            <button
+              onClick={() => setShowPlaceFavoritesOnly(!showPlaceFavoritesOnly)}
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg shrink-0 ${
+                showPlaceFavoritesOnly ? 'bg-yellow-500 text-white' : 'bg-gray-100 text-gray-700'
+              }`}
+            >
+              <Star size={18} fill={showPlaceFavoritesOnly ? 'currentColor' : 'none'} />
+              {placeFavorites.length > 0 && (
+                <span className="text-sm font-medium">{placeFavorites.length}</span>
+              )}
+            </button>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center py-24 px-6 text-center">
-          <span className="text-5xl mb-4">🚧</span>
-          <p className="text-gray-500 text-lg font-medium">Скоро здесь будет что-то интересное</p>
-          <p className="text-gray-400 text-sm mt-2">Раздел в разработке</p>
+
+        <div className="p-4">
+          {placesLoading && places.length === 0 ? (
+            <div className="flex justify-center py-12">
+              <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-500" />
+            </div>
+          ) : placesError && places.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-red-600 mb-4">{placesError}</p>
+              <button onClick={loadPlaces} className="px-4 py-2 bg-blue-500 text-white rounded-lg">
+                Попробовать снова
+              </button>
+            </div>
+          ) : cityPlaces.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-gray-500 mb-2">
+                {showPlaceFavoritesOnly ? 'Нет избранных мест' : 'Места не найдены'}
+              </p>
+              {(placeFilterActive || showPlaceFavoritesOnly) && (
+                <button
+                  onClick={() => {
+                    setShowPlaceFavoritesOnly(false);
+                    setPlaceFilters({ category: 'all' });
+                  }}
+                  className="text-blue-500 text-sm"
+                >
+                  Сбросить фильтры
+                </button>
+              )}
+            </div>
+          ) : (
+            <>
+              <p className="text-sm text-gray-600 mb-4">Найдено мест: {cityPlaces.length}</p>
+              <div className="grid grid-cols-1 gap-4">
+                {cityPlaces.map(place => (
+                  <PlaceCard
+                    key={place.id}
+                    place={place}
+                    isFavorite={placeFavorites.includes(place.id)}
+                    onToggleFavorite={togglePlaceFavorite}
+                  />
+                ))}
+              </div>
+            </>
+          )}
         </div>
+
+        {showPlaceFilters && (
+          <PlaceFilterPanel
+            filters={placeFilters}
+            onFiltersChange={setPlaceFilters}
+            onClose={() => setShowPlaceFilters(false)}
+          />
+        )}
       </div>
     );
   }
