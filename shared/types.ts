@@ -63,13 +63,13 @@ export interface EventsDatabase {
 
 export enum PlaceCategory {
   RESTAURANT = 'restaurant',
-  MUSEUM = 'museum',
+  LEISURE = 'leisure',
   COLLECTION = 'collection',
 }
 
 export const PLACE_CATEGORY_LABELS: Record<PlaceCategory, string> = {
   [PlaceCategory.RESTAURANT]: '🍽️ Ресторан',
-  [PlaceCategory.MUSEUM]: '🏛️ Музей',
+  [PlaceCategory.LEISURE]: '🎭 Досуг',
   [PlaceCategory.COLLECTION]: '📚 Подборка',
 };
 

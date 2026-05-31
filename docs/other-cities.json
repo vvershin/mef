@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Alliance Française",
       "city": "Санкт-Петербург",
-      "category": "museum",
+      "category": "leisure",
       "url": "https://example.com/af-spb",
       "isFeatured": true
     },
@@ -28,7 +28,7 @@
       "id": 4,
       "title": "Французский культурный центр",
       "city": "Екатеринбург",
-      "category": "museum",
+      "category": "leisure",
       "url": "https://example.com/fcce",
       "isFeatured": false
     }

@@ -20,7 +20,7 @@
       "id": 3,
       "title": "Институт французского языка и культуры",
       "address": "ул. Поварская, 7, Москва",
-      "category": "museum",
+      "category": "leisure",
       "url": "https://example.com/institut-francais",
       "isFeatured": true
     },
@@ -28,7 +28,7 @@
       "id": 4,
       "title": "Галерея французского искусства «Эклер»",
       "address": "Никитский бульвар, 12, Москва",
-      "category": "museum",
+      "category": "leisure",
       "url": "https://example.com/eclaire-gallery",
       "isFeatured": false
     },
