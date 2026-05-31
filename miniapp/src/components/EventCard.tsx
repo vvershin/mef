@@ -2,7 +2,7 @@ import React from 'react';
 import { Event, CATEGORY_LABELS } from '../../../shared/types';
 import { format } from 'date-fns';
 import { ru } from 'date-fns/locale';
-import { Calendar, Clock, MapPin, DollarSign, Star, ExternalLink } from 'lucide-react';
+import { Calendar, MapPin, DollarSign, Star, ExternalLink } from 'lucide-react';
 
 interface EventCardProps {
   event: Event;
@@ -19,6 +19,14 @@ export const EventCard: React.FC<EventCardProps> = ({
 }) => {
   const eventDate = new Date(event.date);
   const categoryLabel = CATEGORY_LABELS[event.category];
+
+  const dateTimeLabel = (() => {
+    const startDate = format(eventDate, 'd MMMM yyyy', { locale: ru });
+    const start = event.time ? `${startDate}, ${event.time}` : startDate;
+    if (!event.endDate) return start;
+    const end = format(new Date(event.endDate), 'd MMMM yyyy', { locale: ru });
+    return `${start} — ${end}`;
+  })();
 
   return (
     <div 
@@ -52,16 +60,9 @@ export const EventCard: React.FC<EventCardProps> = ({
 
         <div className="space-y-2 text-sm text-gray-700">
           <div className="flex items-center gap-2">
-            <Calendar size={16} className="text-gray-400" />
-            <span>{format(eventDate, 'd MMMM yyyy', { locale: ru })}</span>
+            <Calendar size={16} className="text-gray-400 shrink-0" />
+            <span>{dateTimeLabel}</span>
           </div>
-
-          {event.time && (
-            <div className="flex items-center gap-2">
-              <Clock size={16} className="text-gray-400" />
-              <span>{event.time}</span>
-            </div>
-          )}
 
           {event.location && (
             <div className="flex items-center gap-2">
