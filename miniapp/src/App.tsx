@@ -8,9 +8,11 @@ import { useTelegram } from './hooks/useTelegram';
 import { useCloudStorage } from './hooks/useCloudStorage';
 import { fetchEvents, cacheEvents } from './api/events';
 import { filterEvents, sortEvents } from './utils/filters';
-import { Star, Filter } from 'lucide-react';
+import { Star, Filter, ArrowLeft } from 'lucide-react';
 
 const MIN_TELEGRAM_VERSION = '6.1';
+
+type Screen = 'home' | 'events-moscow' | 'places-moscow' | 'other-cities';
 
 const isVersionSupported = (version: string, minVersion: string): boolean => {
   const [currentMajor, currentMinor] = version.split('.').map(Number);
@@ -21,6 +23,7 @@ const isVersionSupported = (version: string, minVersion: string): boolean => {
 
 function App() {
   const { tg } = useTelegram();
+  const [screen, setScreen] = useState<Screen>('home');
   const [showVersionWarning, setShowVersionWarning] = useState(false);
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
@@ -91,6 +94,12 @@ function App() {
     setSelectedEvent(event);
   };
 
+  const handleBackToHome = () => {
+    setScreen('home');
+    setSelectedEvent(null);
+    setShowFilters(false);
+  };
+
   const activeFiltersCount = useMemo(() => {
     let count = 0;
     if (filters.category !== 'all') count++;
@@ -99,6 +108,76 @@ function App() {
     if (filters.search) count++;
     return count;
   }, [filters]);
+
+  if (screen === 'home') {
+    return (
+      <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-6">
+        <h1 className="text-2xl font-bold text-gray-900 mb-2 text-center">Куда пойти?</h1>
+        <p className="text-gray-500 mb-8 text-center text-sm">Выбери раздел</p>
+        <div className="w-full max-w-sm flex flex-col gap-4">
+          <button
+            onClick={() => setScreen('events-moscow')}
+            className="w-full flex items-center gap-4 p-5 bg-white rounded-2xl shadow-md hover:shadow-lg active:scale-95 transition-all text-left"
+          >
+            <div>
+              <div className="font-bold text-gray-900 text-lg">События в Москве</div>
+              <div className="text-sm text-gray-500">Концерты, фестивали, выставки</div>
+            </div>
+          </button>
+
+          <button
+            onClick={() => setScreen('places-moscow')}
+            className="w-full flex items-center gap-4 p-5 bg-white rounded-2xl shadow-md hover:shadow-lg active:scale-95 transition-all text-left"
+          >
+            <div>
+              <div className="font-bold text-gray-900 text-lg">Места в Москве</div>
+              <div className="text-sm text-gray-500">Рестораны, парки, музеи</div>
+            </div>
+          </button>
+
+          <button
+            onClick={() => setScreen('other-cities')}
+            className="w-full flex items-center gap-4 p-5 bg-white rounded-2xl shadow-md hover:shadow-lg active:scale-95 transition-all text-left"
+          >
+            <div>
+              <div className="font-bold text-gray-900 text-lg">Другие города</div>
+              <div className="text-sm text-gray-500">События по всей России</div>
+            </div>
+          </button>
+        </div>
+        {showVersionWarning && (
+          <VersionWarning
+            currentVersion={tg?.version || '6.0'}
+            minVersion={MIN_TELEGRAM_VERSION}
+          />
+        )}
+      </div>
+    );
+  }
+
+  if (screen === 'places-moscow' || screen === 'other-cities') {
+    const title = screen === 'places-moscow' ? 'Места в Москве' : 'Другие города';
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <div className="sticky top-0 bg-white border-b border-gray-200 px-4 py-3 z-10">
+          <div className="flex gap-2 items-center">
+            <button
+              onClick={handleBackToHome}
+              className="flex items-center justify-center p-2 rounded-lg bg-gray-100 text-gray-700"
+            >
+              <ArrowLeft size={20} />
+            </button>
+            <span className="font-semibold text-gray-900">{title}</span>
+          </div>
+        </div>
+        <div className="flex flex-col items-center justify-center py-24 px-6 text-center">
+          <span className="text-5xl mb-4">🚧</span>
+          <p className="text-gray-500 text-lg font-medium">Скоро здесь будет что-то интересное</p>
+          <p className="text-gray-400 text-sm mt-2">Раздел в разработке</p>
+        </div>
+      </div>
+    );
+  }
 
   if (loading && events.length === 0) {
     return (
@@ -132,6 +211,13 @@ function App() {
       <div className="sticky top-0 bg-white border-b border-gray-200 px-4 py-3 z-10">
         <div className="flex gap-2">
           <button
+            onClick={handleBackToHome}
+            className="flex items-center justify-center p-2 rounded-lg bg-gray-100 text-gray-700 shrink-0"
+          >
+            <ArrowLeft size={20} />
+          </button>
+
+          <button
             onClick={() => setShowFilters(true)}
             className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg flex-1"
           >
@@ -146,7 +232,7 @@ function App() {
           
           <button
             onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg ${
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg shrink-0 ${
               showFavoritesOnly 
                 ? 'bg-yellow-500 text-white' 
                 : 'bg-gray-100 text-gray-700'
