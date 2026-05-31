@@ -7,8 +7,7 @@ import {
   startOfWeek, 
   endOfWeek, 
   startOfMonth, 
-  endOfMonth,
-  isWithinInterval
+  endOfMonth
 } from 'date-fns';
 
 export const filterEvents = (events: Event[], filters: Filters): Event[] => {
@@ -28,35 +27,30 @@ export const filterEvents = (events: Event[], filters: Filters): Event[] => {
       if (!matchesSearch) return false;
     }
 
-    const eventDate = new Date(event.date);
+    const eventStart = new Date(event.date);
+    const eventEnd = event.endDate ? new Date(event.endDate) : eventStart;
     
     if (filters.dateRange !== 'all') {
       let dateMatches = false;
+
+      const overlaps = (rangeStart: Date, rangeEnd: Date) =>
+        eventStart <= rangeEnd && eventEnd >= rangeStart;
       
       switch (filters.dateRange) {
         case 'today':
-          dateMatches = isWithinInterval(eventDate, {
-            start: startOfToday(),
-            end: endOfTomorrow()
-          });
+          dateMatches = overlaps(startOfToday(), endOfTomorrow());
           break;
         case 'tomorrow':
-          dateMatches = isWithinInterval(eventDate, {
-            start: startOfTomorrow(),
-            end: endOfTomorrow()
-          });
+          dateMatches = overlaps(startOfTomorrow(), endOfTomorrow());
           break;
         case 'week':
-          dateMatches = isWithinInterval(eventDate, {
-            start: startOfWeek(new Date(), { weekStartsOn: 1 }),
-            end: endOfWeek(new Date(), { weekStartsOn: 1 })
-          });
+          dateMatches = overlaps(
+            startOfWeek(new Date(), { weekStartsOn: 1 }),
+            endOfWeek(new Date(), { weekStartsOn: 1 })
+          );
           break;
         case 'month':
-          dateMatches = isWithinInterval(eventDate, {
-            start: startOfMonth(new Date()),
-            end: endOfMonth(new Date())
-          });
+          dateMatches = overlaps(startOfMonth(new Date()), endOfMonth(new Date()));
           break;
       }
       

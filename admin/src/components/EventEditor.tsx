@@ -20,7 +20,7 @@ export const EventEditor: React.FC<EventEditorProps> = ({ event, onSave, onClose
     } : {
       title: '',
       description: '',
-      category: EventCategory.OTHER,
+      category: EventCategory.LANGUAGE,
       date: '',
       time: '',
       endDate: '',

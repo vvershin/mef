@@ -8,20 +8,22 @@ export enum EventCategory {
   FESTIVAL = 'festival',
   ENTERTAINMENT = 'entertainment',
   CREATIVITY = 'creativity',
-  FOR_KIDS = 'for_kids'
+  FOR_KIDS = 'for_kids',
+  CINEMA = 'cinema'
 }
 
 export const CATEGORY_LABELS: Record<EventCategory, string> = {
   [EventCategory.LANGUAGE]: '🗣️ Язык',
   [EventCategory.ART]: '🏛️ Искусство',
   [EventCategory.THEATER]: '🎭 Театр',
-  [EventCategory.MUSIC]: '🎤 Музыка',
+  [EventCategory.MUSIC]: '🎵 Музыка',
   [EventCategory.SPORT]: '⚽ Спорт',
   [EventCategory.FOOD]: '🍰 Вкусненькое',
   [EventCategory.FESTIVAL]: '🎪 Фестиваль',
   [EventCategory.ENTERTAINMENT]: '🎉 Развлечения',
   [EventCategory.CREATIVITY]: '🎨 Творчество',
-  [EventCategory.FOR_KIDS]: '🧸 Для детей'
+  [EventCategory.FOR_KIDS]: '🧸 Для детей',
+  [EventCategory.CINEMA]: '🎬 Кино'
 };
 
 export interface Event {
