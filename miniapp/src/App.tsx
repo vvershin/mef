@@ -14,7 +14,7 @@ import { fetchEvents, cacheEvents } from './api/events';
 import { fetchPlaces, cachePlaces } from './api/places';
 import { fetchOtherCities, cacheOtherCities } from './api/otherCities';
 import { filterEvents, sortEvents } from './utils/filters';
-import { Star, Filter, ArrowLeft } from 'lucide-react';
+import { Star, Filter, ArrowLeft, MessageCircle } from 'lucide-react';
 
 const MIN_TELEGRAM_VERSION = '6.1';
 
@@ -242,6 +242,19 @@ function App() {
             <div>
               <div className="font-bold text-gray-900 text-lg">Другие города</div>
               <div className="text-sm text-gray-500">Места и события по всей России + авторские гайды</div>
+            </div>
+          </button>
+
+          <button
+            onClick={() => tg?.openTelegramLink('https://t.me/hipncool')}
+            className="w-full flex items-center gap-4 p-4 rounded-2xl border border-gray-200 hover:bg-gray-50 active:scale-95 transition-all text-left"
+          >
+            <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
+              <MessageCircle size={20} className="text-blue-500" />
+            </div>
+            <div>
+              <div className="font-medium text-gray-700">Обратная связь</div>
+              <div className="text-sm text-gray-400">Написать нам в Telegram</div>
             </div>
           </button>
         </div>
