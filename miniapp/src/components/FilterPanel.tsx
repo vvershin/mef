@@ -1,6 +1,8 @@
 import React from 'react';
 import { EventCategory, CATEGORY_LABELS } from '../../../shared/types';
 import { X } from 'lucide-react';
+import { format } from 'date-fns';
+import { ru } from 'date-fns/locale';
 
 export interface Filters {
   category: EventCategory | 'all';
@@ -114,16 +116,22 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({
                   {label}
                 </button>
               ))}
-            </div>
-            <div className="mt-2">
-              <input
-                type="date"
-                value={filters.customDate}
-                onChange={(e) => onFiltersChange({ ...filters, dateRange: e.target.value ? 'custom' : 'all', customDate: e.target.value })}
-                className={`w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                  filters.dateRange === 'custom' ? 'border-blue-500 bg-blue-50' : 'border-gray-300'
+              <label
+                className={`relative flex items-center justify-center px-3 py-2 rounded-lg text-sm cursor-pointer select-none ${
+                  filters.dateRange === 'custom' ? 'bg-blue-500 text-white' : 'bg-gray-100 text-gray-700'
                 }`}
-              />
+              >
+                {filters.customDate
+                  ? format(new Date(filters.customDate), 'd MMM yyyy', { locale: ru })
+                  : 'Своя дата'
+                }
+                <input
+                  type="date"
+                  value={filters.customDate}
+                  onChange={(e) => onFiltersChange({ ...filters, dateRange: e.target.value ? 'custom' : 'all', customDate: e.target.value })}
+                  className="absolute inset-0 opacity-0 w-full h-full cursor-pointer"
+                />
+              </label>
             </div>
           </div>
 
