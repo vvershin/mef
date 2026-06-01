@@ -498,6 +498,7 @@ function App() {
                   setFilters({
                     category: 'all',
                     dateRange: 'all',
+                    customDate: '',
                     priceRange: 'all',
                     search: '',
                   });
