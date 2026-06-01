@@ -14,7 +14,7 @@ import {
 
 export const filterEvents = (events: Event[], filters: Filters): Event[] => {
   return events.filter(event => {
-    if (filters.category !== 'all' && event.category !== filters.category) {
+    if (filters.categories.length > 0 && !filters.categories.includes(event.category)) {
       return false;
     }
 

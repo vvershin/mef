@@ -41,7 +41,7 @@ function App() {
   const [favorites, setFavorites] = useCloudStorage<number[]>('favorites', []);
   const [placeFavorites, setPlaceFavorites] = useCloudStorage<number[]>('place_favorites', []);
   const [filters, setFilters] = useState<Filters>({
-    category: 'all',
+    categories: [],
     dateRange: 'all',
     customDate: '',
     priceRange: 'all',
@@ -203,7 +203,7 @@ function App() {
 
   const activeFiltersCount = useMemo(() => {
     let count = 0;
-    if (filters.category !== 'all') count++;
+    if (filters.categories.length > 0) count++;
     if (filters.dateRange !== 'all') count++;
     if (filters.priceRange !== 'all') count++;
     if (filters.search) count++;
@@ -496,7 +496,7 @@ function App() {
                 onClick={() => {
                   setShowFavoritesOnly(false);
                   setFilters({
-                    category: 'all',
+                    categories: [],
                     dateRange: 'all',
                     customDate: '',
                     priceRange: 'all',

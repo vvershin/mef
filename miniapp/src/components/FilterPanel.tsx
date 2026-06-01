@@ -5,7 +5,7 @@ import { format } from 'date-fns';
 import { ru } from 'date-fns/locale';
 
 export interface Filters {
-  category: EventCategory | 'all';
+  categories: EventCategory[];
   dateRange: 'all' | 'today' | 'tomorrow' | 'week' | 'month' | 'custom';
   customDate: string;
   priceRange: 'all' | 'free' | 'paid';
@@ -27,9 +27,17 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({
     onFiltersChange({ ...filters, [key]: value });
   };
 
+  const toggleCategory = (value: EventCategory) => {
+    const current = filters.categories;
+    const next = current.includes(value)
+      ? current.filter(c => c !== value)
+      : [...current, value];
+    onFiltersChange({ ...filters, categories: next });
+  };
+
   const resetFilters = () => {
     onFiltersChange({
-      category: 'all',
+      categories: [],
       dateRange: 'all',
       customDate: '',
       priceRange: 'all',
@@ -67,9 +75,9 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({
             </label>
             <div className="grid grid-cols-2 gap-2">
               <button
-                onClick={() => updateFilter('category', 'all')}
+                onClick={() => onFiltersChange({ ...filters, categories: [] })}
                 className={`px-3 py-2 rounded-lg text-sm ${
-                  filters.category === 'all'
+                  filters.categories.length === 0
                     ? 'bg-blue-500 text-white'
                     : 'bg-gray-100 text-gray-700'
                 }`}
@@ -79,9 +87,9 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({
               {Object.entries(CATEGORY_LABELS).map(([value, label]) => (
                 <button
                   key={value}
-                  onClick={() => updateFilter('category', value)}
+                  onClick={() => toggleCategory(value as EventCategory)}
                   className={`px-3 py-2 rounded-lg text-sm ${
-                    filters.category === value
+                    filters.categories.includes(value as EventCategory)
                       ? 'bg-blue-500 text-white'
                       : 'bg-gray-100 text-gray-700'
                   }`}
