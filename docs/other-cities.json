@@ -1,38 +1,190 @@
 {
   "places": [
     {
-      "id": 1,
-      "title": "Alliance Française",
-      "city": "Санкт-Петербург",
-      "category": "leisure",
-      "url": "https://example.com/af-spb",
-      "isFeatured": true
+      "title": "Гайд по Перми",
+      "city": "Пермь",
+      "category": "collection",
+      "url": "https://t.me/moscouenfrancais/7002",
+      "isFeatured": false,
+      "id": 1
     },
     {
-      "id": 2,
-      "title": "Café Provençal",
+      "title": "Топ-5 мест в Перми",
+      "city": "Пермь",
+      "category": "collection",
+      "url": "https://t.me/moscouenfrancais/6862",
+      "isFeatured": false,
+      "id": 2
+    },
+    {
+      "title": "Где есть круассаны в Пензе",
+      "city": "Пенза",
+      "category": "restaurant",
+      "url": "https://t.me/moscouenfrancais/4525",
+      "isFeatured": false,
+      "id": 3
+    },
+    {
+      "title": "Гайд по Тюмени",
+      "city": "Тюмень",
+      "category": "collection",
+      "url": "https://t.me/moscouenfrancais/6891",
+      "isFeatured": false,
+      "id": 4
+    },
+    {
+      "title": "Гайд по Ижевску",
+      "city": "Ижевск",
+      "category": "collection",
+      "url": "https://t.me/moscouenfrancais/6728",
+      "isFeatured": false,
+      "id": 5
+    },
+    {
+      "title": "Mirage в Перми",
+      "city": "Пермь",
+      "category": "restaurant",
+      "url": "https://t.me/moscouenfrancais/6749",
+      "isFeatured": false,
+      "id": 6
+    },
+    {
+      "title": "Брэдбери в Перми",
+      "city": "Пермь",
+      "category": "restaurant",
+      "url": "https://t.me/moscouenfrancais/6767",
+      "isFeatured": false,
+      "id": 7
+    },
+    {
+      "title": "Engels в Екатеринбурге",
+      "city": "Екатеринбург",
+      "category": "restaurant",
+      "url": "https://t.me/moscouenfrancais/6805",
+      "isFeatured": false,
+      "id": 8
+    },
+    {
+      "title": "Куда сходить в Екатеринбурге",
+      "city": "Екатеринбург",
+      "category": "collection",
+      "url": "https://t.me/moscouenfrancais/6817",
+      "isFeatured": false,
+      "id": 9
+    },
+    {
+      "title": "Frenchie Café в Екатеринбурге",
+      "city": "Екатеринбург",
+      "category": "restaurant",
+      "url": "https://t.me/moscouenfrancais/6850",
+      "isFeatured": false,
+      "id": 10
+    },
+    {
+      "title": "Гайд по Тобольску",
+      "city": "Тобольск",
+      "category": "collection",
+      "url": "https://t.me/moscouenfrancais/6913",
+      "isFeatured": false,
+      "id": 11
+    },
+    {
+      "title": "Курган и область",
+      "city": "Курган",
+      "category": "collection",
+      "url": "https://t.me/moscouenfrancais/6951",
+      "isFeatured": false,
+      "id": 12
+    },
+    {
+      "title": "Гайд по Челябинску",
+      "city": "Челябинск",
+      "category": "collection",
+      "url": "https://t.me/moscouenfrancais/6967",
+      "isFeatured": false,
+      "id": 13
+    },
+    {
+      "title": "Гайд по Уфе",
+      "city": "Уфа",
+      "category": "collection",
+      "url": "https://t.me/moscouenfrancais/6992",
+      "isFeatured": false,
+      "id": 14
+    },
+    {
+      "title": "Camon в Оренбурге",
+      "city": "Оренбург",
+      "category": "restaurant",
+      "url": "https://t.me/moscouenfrancais/7026",
+      "isFeatured": false,
+      "id": 15
+    },
+    {
+      "title": "Гайд по Оренбурге",
+      "city": "Оренбург",
+      "category": "collection",
+      "url": "https://t.me/moscouenfrancais/7033",
+      "isFeatured": false,
+      "id": 16
+    },
+    {
+      "title": "Гайд по Ульяновску",
+      "city": "Ульяновск",
+      "category": "collection",
+      "url": "https://t.me/moscouenfrancais/7059",
+      "isFeatured": false,
+      "id": 17
+    },
+    {
+      "title": "Топ-5 мест в Самаре",
+      "city": "Самара",
+      "category": "collection",
+      "url": "https://t.me/moscouenfrancais/7322",
+      "isFeatured": false,
+      "id": 18
+    },
+    {
+      "title": "HOBZ в Петербурге",
       "city": "Санкт-Петербург",
       "category": "restaurant",
-      "url": "https://example.com/cafe-provencal",
-      "isFeatured": false
+      "url": "https://t.me/moscouenfrancais/2010",
+      "isFeatured": false,
+      "id": 19
     },
     {
-      "id": 3,
-      "title": "Лучшие французские рестораны Питера",
+      "title": "René в Петербурге",
+      "city": "Санкт-Петербург",
+      "category": "restaurant",
+      "url": "https://t.me/moscouenfrancais/2208",
+      "isFeatured": false,
+      "id": 20
+    },
+    {
+      "title": "Кондитерская Фредерика Андриё",
+      "city": "Переславль-Залесский",
+      "category": "restaurant",
+      "url": "https://t.me/moscouenfrancais/8586",
+      "isFeatured": false,
+      "id": 21
+    },
+    {
+      "title": "Маршрут «Балетный Петербург»",
       "city": "Санкт-Петербург",
       "category": "collection",
-      "url": "https://example.com/spb-french-guide",
-      "isFeatured": false
+      "url": "https://t.me/moscouenfrancais/5722",
+      "isFeatured": false,
+      "id": 22
     },
     {
-      "id": 4,
-      "title": "Французский культурный центр",
-      "city": "Екатеринбург",
-      "category": "leisure",
-      "url": "https://example.com/fcce",
-      "isFeatured": false
+      "title": "Pavlova в Петербурге",
+      "city": "Санкт-Петербург",
+      "category": "restaurant",
+      "url": "https://t.me/moscouenfrancais/6475",
+      "isFeatured": false,
+      "id": 23
     }
   ],
-  "lastUpdated": "2026-05-31T00:00:00.000Z",
+  "lastUpdated": "2026-06-01T10:54:03.575Z",
   "version": "1.0.0"
 }
