@@ -18,7 +18,7 @@ export const CATEGORY_LABELS: Record<EventCategory, string> = {
   [EventCategory.THEATER]: '🎭 Театр',
   [EventCategory.MUSIC]: '🎵 Музыка',
   [EventCategory.SPORT]: '⚽ Спорт',
-  [EventCategory.FOOD]: '🍰 Вкусненькое',
+  [EventCategory.FOOD]: '🍷 Вкусненькое',
   [EventCategory.FESTIVAL]: '🎪 Фестиваль',
   [EventCategory.ENTERTAINMENT]: '🎉 Развлечения',
   [EventCategory.CREATIVITY]: '🎨 Творчество',

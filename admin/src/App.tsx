@@ -11,12 +11,17 @@ import {
   loadPlaces, savePlaces, downloadPlacesJSON, importPlacesFromJSON,
   loadOtherCities, saveOtherCities, downloadOtherCitiesJSON, importOtherCitiesFromJSON,
 } from './utils/storage';
-import { Plus, Download, Upload, Trash2 } from 'lucide-react';
+import { GitHubSettingsModal } from './components/GitHubSettingsModal';
+import { GitHubSettings, loadGitHubSettings, publishFileToGitHub } from './utils/github';
+import { Plus, Download, Upload, Trash2, Github, Settings } from 'lucide-react';
 
 type Tab = 'events' | 'places' | 'other-cities';
 
 function App() {
   const [tab, setTab] = useState<Tab>('events');
+  const [ghSettings, setGhSettings] = useState<GitHubSettings | null>(loadGitHubSettings);
+  const [showGhSettings, setShowGhSettings] = useState(false);
+  const [publishing, setPublishing] = useState(false);
 
   const [events, setEvents] = useState<Event[]>([]);
   const [editingEvent, setEditingEvent] = useState<Event | null>(null);
@@ -191,6 +196,26 @@ function App() {
     e.target.value = '';
   };
 
+  // ── GitHub Publish ─────────────────────────────────────────
+  const handlePublish = async () => {
+    if (!ghSettings) { setShowGhSettings(true); return; }
+    const fileMap: Record<Tab, { path: string; data: object; label: string }> = {
+      events: { path: 'docs/events.json', data: { events, lastUpdated: new Date().toISOString(), version: '1.0.0' }, label: 'events.json' },
+      places: { path: 'docs/places.json', data: { places, lastUpdated: new Date().toISOString(), version: '1.0.0' }, label: 'places.json' },
+      'other-cities': { path: 'docs/other-cities.json', data: { places: otherCities, lastUpdated: new Date().toISOString(), version: '1.0.0' }, label: 'other-cities.json' },
+    };
+    const { path, data, label } = fileMap[tab];
+    setPublishing(true);
+    try {
+      await publishFileToGitHub(ghSettings, path, data, `Update ${label} via admin panel`);
+      alert(`✅ ${label} опубликован в репозиторий!`);
+    } catch (err) {
+      alert('Ошибка публикации: ' + (err as Error).message);
+    } finally {
+      setPublishing(false);
+    }
+  };
+
   // ── Render ────────────────────────────────────────────────
   const isEvents = tab === 'events';
   const isOtherCities = tab === 'other-cities';
@@ -268,6 +293,24 @@ function App() {
                   <Plus size={18} />
                   {isEvents ? 'Создать мероприятие' : 'Создать место'}
                 </button>
+
+                <button
+                  onClick={handlePublish}
+                  disabled={publishing}
+                  className="flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-700 disabled:opacity-50"
+                  title="Опубликовать в GitHub"
+                >
+                  <Github size={18} />
+                  {publishing ? 'Публикация...' : 'В GitHub'}
+                </button>
+
+                <button
+                  onClick={() => setShowGhSettings(true)}
+                  className="flex items-center justify-center p-2 border border-gray-300 rounded-md text-gray-500 hover:bg-gray-50"
+                  title="Настройки GitHub"
+                >
+                  <Settings size={18} />
+                </button>
               </div>
             </div>
           </div>
@@ -326,6 +369,14 @@ function App() {
           place={editingPlace || undefined}
           onSave={handleSavePlace}
           onClose={() => { setShowPlaceEditor(false); setEditingPlace(null); }}
+        />
+      )}
+
+      {showGhSettings && (
+        <GitHubSettingsModal
+          initial={ghSettings}
+          onSave={setGhSettings}
+          onClose={() => setShowGhSettings(false)}
         />
       )}
 
