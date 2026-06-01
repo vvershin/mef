@@ -1,52 +1,82 @@
 {
   "places": [
     {
-      "id": 1,
-      "title": "Café de Paris",
-      "address": "ул. Петровка, 17, Москва",
+      "title": "ODMO maison",
+      "address": "Большой Трёхсвятительский пер., 2",
       "category": "restaurant",
-      "url": "https://example.com/cafe-de-paris",
-      "isFeatured": true
+      "url": "https://t.me/moscouenfrancais/9149",
+      "isFeatured": false,
+      "id": 1
     },
     {
-      "id": 2,
-      "title": "Brasserie Most",
-      "address": "Кузнецкий Мост, 6/3, Москва",
+      "title": "Cazaban",
+      "address": "Серпуховская площадь, 36/71с1",
       "category": "restaurant",
-      "url": "https://example.com/brasserie-most",
-      "isFeatured": false
+      "url": "https://t.me/moscouenfrancais/8683",
+      "isFeatured": false,
+      "id": 2
     },
     {
-      "id": 3,
-      "title": "Институт французского языка и культуры",
-      "address": "ул. Поварская, 7, Москва",
-      "category": "leisure",
-      "url": "https://example.com/institut-francais",
-      "isFeatured": true
+      "title": "Шануар",
+      "address": "Тверской бул., 26",
+      "category": "restaurant",
+      "url": "https://t.me/moscouenfrancais/6209",
+      "isFeatured": false,
+      "id": 3
     },
     {
-      "id": 4,
-      "title": "Галерея французского искусства «Эклер»",
-      "address": "Никитский бульвар, 12, Москва",
-      "category": "leisure",
-      "url": "https://example.com/eclaire-gallery",
-      "isFeatured": false
-    },
-    {
-      "id": 5,
-      "title": "Французские рестораны Москвы — путеводитель",
+      "title": "Где покупают багеты московские французы",
       "category": "collection",
-      "url": "https://example.com/french-restaurants-guide",
-      "isFeatured": false
+      "url": "https://t.me/moscouenfrancais/2311",
+      "isFeatured": false,
+      "id": 4
     },
     {
-      "id": 6,
-      "title": "Где говорят по-французски: кафе и клубы",
+      "title": "Где в Москве есть macaron",
       "category": "collection",
-      "url": "https://example.com/french-speaking-places",
-      "isFeatured": false
+      "url": "https://t.me/moscouenfrancais/2756",
+      "isFeatured": false,
+      "id": 5
+    },
+    {
+      "title": "Рестораны с французскими шефами",
+      "category": "collection",
+      "url": "https://t.me/moscouenfrancais/2525",
+      "isFeatured": false,
+      "id": 6
+    },
+    {
+      "title": "Лучшие места для пикника",
+      "category": "collection",
+      "url": "https://t.me/moscouenfrancais/1891",
+      "isFeatured": false,
+      "id": 7
+    },
+    {
+      "title": "Пушкинский музей",
+      "address": "ул. Волхонка, 12",
+      "category": "leisure",
+      "url": "https://t.me/moscouenfrancais/8792",
+      "isFeatured": false,
+      "id": 8
+    },
+    {
+      "title": "Видовой коворкинг в Третьяковке",
+      "address": "Кадашёвская набережная, 12",
+      "category": "leisure",
+      "url": "https://t.me/moscouenfrancais/9045",
+      "isFeatured": false,
+      "id": 9
+    },
+    {
+      "title": "Michel",
+      "address": "ул. Красная Пресня, 13",
+      "category": "restaurant",
+      "url": "https://t.me/moscouenfrancais/1937",
+      "isFeatured": false,
+      "id": 10
     }
   ],
-  "lastUpdated": "2026-05-31T00:00:00.000Z",
+  "lastUpdated": "2026-06-01T10:53:43.110Z",
   "version": "1.0.0"
 }
