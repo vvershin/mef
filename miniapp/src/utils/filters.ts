@@ -7,7 +7,9 @@ import {
   startOfWeek, 
   endOfWeek, 
   startOfMonth, 
-  endOfMonth
+  endOfMonth,
+  startOfDay,
+  endOfDay
 } from 'date-fns';
 
 export const filterEvents = (events: Event[], filters: Filters): Event[] => {
@@ -53,6 +55,14 @@ export const filterEvents = (events: Event[], filters: Filters): Event[] => {
           break;
         case 'month':
           dateMatches = overlaps(startOfMonth(new Date()), endOfMonth(new Date()));
+          break;
+        case 'custom':
+          if (filters.customDate) {
+            const d = new Date(filters.customDate);
+            dateMatches = overlaps(startOfDay(d), endOfDay(d));
+          } else {
+            dateMatches = true;
+          }
           break;
       }
       

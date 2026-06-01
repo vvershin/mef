@@ -3,6 +3,7 @@ import { Event, CATEGORY_LABELS } from '../../../shared/types';
 import { format } from 'date-fns';
 import { ru } from 'date-fns/locale';
 import { Calendar, MapPin, DollarSign, Star, ExternalLink } from 'lucide-react';
+import { openUrl } from '../utils/openUrl';
 
 interface EventCardProps {
   event: Event;
@@ -83,7 +84,7 @@ export const EventCard: React.FC<EventCardProps> = ({
           <button
             onClick={(e) => {
               e.stopPropagation();
-              window.Telegram?.WebApp?.openLink(event.registrationUrl!);
+              openUrl(event.registrationUrl!);
             }}
             className="mt-3 w-full flex items-center justify-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
           >

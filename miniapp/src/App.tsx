@@ -43,6 +43,7 @@ function App() {
   const [filters, setFilters] = useState<Filters>({
     category: 'all',
     dateRange: 'all',
+    customDate: '',
     priceRange: 'all',
     search: '',
   });

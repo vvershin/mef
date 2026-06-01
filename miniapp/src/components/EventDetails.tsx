@@ -3,6 +3,7 @@ import { Event, CATEGORY_LABELS } from '../../../shared/types';
 import { format } from 'date-fns';
 import { ru } from 'date-fns/locale';
 import { X, Calendar, Clock, MapPin, DollarSign, User, Phone, ExternalLink } from 'lucide-react';
+import { openUrl } from '../utils/openUrl';
 
 interface EventDetailsProps {
   event: Event;
@@ -12,15 +13,6 @@ interface EventDetailsProps {
 export const EventDetails: React.FC<EventDetailsProps> = ({ event, onClose }) => {
   const eventDate = new Date(event.date);
   const categoryLabel = CATEGORY_LABELS[event.category];
-  const tg = window.Telegram?.WebApp;
-
-  const handleOpenLink = (url: string) => {
-    if (tg) {
-      tg.openLink(url);
-    } else {
-      window.open(url, '_blank');
-    }
-  };
 
   return (
     <div className="fixed inset-0 bg-white z-50 overflow-y-auto">
@@ -105,7 +97,7 @@ export const EventDetails: React.FC<EventDetailsProps> = ({ event, onClose }) =>
 
           {event.registrationUrl && (
             <button
-              onClick={() => handleOpenLink(event.registrationUrl!)}
+              onClick={() => openUrl(event.registrationUrl!)}
               className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-blue-500 text-white rounded-lg font-medium text-lg hover:bg-blue-600 transition-colors"
             >
               <ExternalLink size={20} />

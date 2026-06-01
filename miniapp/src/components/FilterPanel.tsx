@@ -4,7 +4,8 @@ import { X } from 'lucide-react';
 
 export interface Filters {
   category: EventCategory | 'all';
-  dateRange: 'all' | 'today' | 'tomorrow' | 'week' | 'month';
+  dateRange: 'all' | 'today' | 'tomorrow' | 'week' | 'month' | 'custom';
+  customDate: string;
   priceRange: 'all' | 'free' | 'paid';
   search: string;
 }
@@ -28,6 +29,7 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({
     onFiltersChange({
       category: 'all',
       dateRange: 'all',
+      customDate: '',
       priceRange: 'all',
       search: '',
     });
@@ -102,7 +104,7 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({
               ].map(({ value, label }) => (
                 <button
                   key={value}
-                  onClick={() => updateFilter('dateRange', value)}
+                  onClick={() => onFiltersChange({ ...filters, dateRange: value as Filters['dateRange'], customDate: '' })}
                   className={`px-3 py-2 rounded-lg text-sm ${
                     filters.dateRange === value
                       ? 'bg-blue-500 text-white'
@@ -112,6 +114,16 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({
                   {label}
                 </button>
               ))}
+            </div>
+            <div className="mt-2">
+              <input
+                type="date"
+                value={filters.customDate}
+                onChange={(e) => onFiltersChange({ ...filters, dateRange: e.target.value ? 'custom' : 'all', customDate: e.target.value })}
+                className={`w-full px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                  filters.dateRange === 'custom' ? 'border-blue-500 bg-blue-50' : 'border-gray-300'
+                }`}
+              />
             </div>
           </div>
 

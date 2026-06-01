@@ -1,6 +1,7 @@
 import React from 'react';
 import { OtherCityPlace, PLACE_CATEGORY_LABELS } from '../../../shared/types';
 import { MapPin, ExternalLink, Star } from 'lucide-react';
+import { openUrl } from '../utils/openUrl';
 
 interface OtherCityCardProps {
   place: OtherCityPlace;
@@ -36,7 +37,7 @@ export const OtherCityCard: React.FC<OtherCityCardProps> = ({ place, isFavorite,
 
       {place.url && (
         <button
-          onClick={() => window.Telegram?.WebApp?.openLink(place.url!)}
+          onClick={() => openUrl(place.url!)}
           className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
         >
           <ExternalLink size={16} />
