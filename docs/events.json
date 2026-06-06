@@ -438,7 +438,7 @@
     },
     {
       "title": "«Огни Парижа»: концерт группы «Елисейские поля»",
-      "description": "Мероприятие в рамках Московского международного джазового фестиваля",
+      "description": "Промокод PARIS на скидку 20%. Мероприятие в рамках Московского международного джазового фестиваля",
       "category": "music",
       "date": "2026-06-11",
       "isFree": false,
@@ -446,7 +446,7 @@
       "isFeatured": false,
       "id": 36,
       "createdAt": "2026-05-31T23:00:52.109Z",
-      "updatedAt": "2026-05-31T23:00:52.109Z"
+      "updatedAt": "2026-06-06T05:44:52.409Z"
     },
     {
       "title": "Разговорный клуб с носителем для продолжающих",
@@ -1081,8 +1081,86 @@
       "id": 87,
       "createdAt": "2026-06-04T07:05:05.480Z",
       "updatedAt": "2026-06-04T07:05:05.480Z"
+    },
+    {
+      "title": "Французская музыка на панорамной крыше",
+      "description": "Промокод MARI на скидку 15%",
+      "category": "music",
+      "date": "2026-06-13",
+      "time": "16:00",
+      "isFree": false,
+      "registrationUrl": "https://artmusic.live/",
+      "isFeatured": false,
+      "id": 88,
+      "createdAt": "2026-06-06T05:42:25.846Z",
+      "updatedAt": "2026-06-06T05:42:25.846Z"
+    },
+    {
+      "title": "Концерт-спектакль «Письма незнакомке»",
+      "description": "Промокод MARI15 на скидку 15%",
+      "category": "music",
+      "date": "2026-06-25",
+      "time": "19:00",
+      "isFree": false,
+      "registrationUrl": "https://neznakomka-concert.ru/?utm_source=tg&utm_campaign=mari",
+      "isFeatured": false,
+      "id": 89,
+      "createdAt": "2026-06-06T05:43:55.742Z",
+      "updatedAt": "2026-06-06T05:43:55.742Z"
+    },
+    {
+      "title": "Спектакль «Семейная пекарня»",
+      "description": "Путешествие в Париж для всей семьи",
+      "category": "theater",
+      "date": "2026-06-08",
+      "time": "19:00",
+      "isFree": false,
+      "registrationUrl": "https://teatrvkusa.ru/pekarnya/",
+      "isFeatured": false,
+      "id": 90,
+      "createdAt": "2026-06-06T05:46:23.972Z",
+      "updatedAt": "2026-06-06T05:46:23.972Z"
+    },
+    {
+      "title": "Спектакль «Семейная пекарня»",
+      "description": "Путешествие в Париж для всей семьи",
+      "category": "theater",
+      "date": "2026-06-28",
+      "time": "14:00",
+      "isFree": false,
+      "registrationUrl": "https://teatrvkusa.ru/pekarnya/",
+      "isFeatured": false,
+      "id": 91,
+      "createdAt": "2026-06-06T05:47:02.039Z",
+      "updatedAt": "2026-06-06T05:47:02.039Z"
+    },
+    {
+      "title": "Спектакль «Семейная пекарня»",
+      "description": "Путешествие в Париж для всей семьи",
+      "category": "theater",
+      "date": "2026-06-28",
+      "time": "18:00",
+      "isFree": false,
+      "registrationUrl": "https://teatrvkusa.ru/pekarnya/",
+      "isFeatured": false,
+      "id": 92,
+      "createdAt": "2026-06-06T05:47:37.274Z",
+      "updatedAt": "2026-06-06T05:47:37.274Z"
+    },
+    {
+      "title": "Бесплатный разговорный клуб с носителями",
+      "description": "",
+      "category": "language",
+      "date": "2026-06-14",
+      "time": "19:00",
+      "isFree": true,
+      "registrationUrl": "https://voroh.ru/event/1034428/",
+      "isFeatured": false,
+      "id": 93,
+      "createdAt": "2026-06-06T05:49:17.277Z",
+      "updatedAt": "2026-06-06T05:49:17.277Z"
     }
   ],
-  "lastUpdated": "2026-06-04T07:08:16.230Z",
+  "lastUpdated": "2026-06-06T05:49:22.718Z",
   "version": "1.0.0"
 }
