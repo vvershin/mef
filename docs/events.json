@@ -1484,8 +1484,60 @@
       "id": 118,
       "createdAt": "2026-06-14T20:11:00.572Z",
       "updatedAt": "2026-06-14T20:11:00.572Z"
+    },
+    {
+      "title": "Кинопоказ во Французском институте",
+      "description": "Фильм «Борго» на французском с субтитрами",
+      "category": "cinema",
+      "date": "2026-06-16",
+      "time": "19:00",
+      "isFree": true,
+      "registrationUrl": "https://ifrussiemoscou.timepad.ru/event/4026136/",
+      "isFeatured": false,
+      "id": 119,
+      "createdAt": "2026-06-14T20:12:58.839Z",
+      "updatedAt": "2026-06-14T20:12:58.839Z"
+    },
+    {
+      "title": "Спецпоказ «Клео от 5 до 7» в «Иллюзионе»",
+      "description": "",
+      "category": "cinema",
+      "date": "2026-06-28",
+      "time": "17:00",
+      "isFree": false,
+      "registrationUrl": "https://illusion-cinema.ru/event-25571/",
+      "isFeatured": false,
+      "id": 120,
+      "createdAt": "2026-06-14T20:15:47.141Z",
+      "updatedAt": "2026-06-14T20:15:47.141Z"
+    },
+    {
+      "title": "Спецпоказ «Клео от 5 до 7» в «Москино Салют» ",
+      "description": "",
+      "category": "cinema",
+      "date": "2026-06-27",
+      "time": "19:00",
+      "isFree": false,
+      "registrationUrl": "https://mos-kino.ru/event/spetsialnyy-pokaz-kleo-ot-5-do-7/",
+      "isFeatured": false,
+      "id": 121,
+      "createdAt": "2026-06-14T20:17:45.605Z",
+      "updatedAt": "2026-06-14T20:17:45.605Z"
+    },
+    {
+      "title": "Арт-завтрак «Матисс. Художник света»",
+      "description": "",
+      "category": "art",
+      "date": "2026-06-17",
+      "time": "11:00",
+      "isFree": false,
+      "registrationUrl": "https://polikpavlovich.ru/tproduct/350941674-293335560152-17-iyunya-sreda",
+      "isFeatured": false,
+      "id": 122,
+      "createdAt": "2026-06-14T20:19:43.741Z",
+      "updatedAt": "2026-06-14T20:19:43.741Z"
     }
   ],
-  "lastUpdated": "2026-06-14T20:11:02.904Z",
+  "lastUpdated": "2026-06-14T20:19:45.769Z",
   "version": "1.0.0"
 }
