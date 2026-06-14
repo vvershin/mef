@@ -1536,8 +1536,47 @@
       "id": 122,
       "createdAt": "2026-06-14T20:19:43.741Z",
       "updatedAt": "2026-06-14T20:19:43.741Z"
+    },
+    {
+      "title": "Дегустация «Винные хиты Франции»",
+      "description": "",
+      "category": "food",
+      "date": "2026-06-18",
+      "time": "19:00",
+      "isFree": false,
+      "registrationUrl": "https://simplewine.ru/events/547160/",
+      "isFeatured": false,
+      "id": 123,
+      "createdAt": "2026-06-14T20:22:24.418Z",
+      "updatedAt": "2026-06-14T20:22:24.418Z"
+    },
+    {
+      "title": "Винная дегустация «Великая Шампань»",
+      "description": "",
+      "category": "food",
+      "date": "2026-06-19",
+      "time": "19:30",
+      "isFree": false,
+      "registrationUrl": "https://simplewine.ru/events/549443/",
+      "isFeatured": false,
+      "id": 124,
+      "createdAt": "2026-06-14T20:23:15.102Z",
+      "updatedAt": "2026-06-14T20:23:15.102Z"
+    },
+    {
+      "title": "Винная дегустация «Пятничный квартет: Франция»",
+      "description": "",
+      "category": "food",
+      "date": "2026-06-19",
+      "time": "19:30",
+      "isFree": false,
+      "registrationUrl": "https://simplewine.ru/events/549714/",
+      "isFeatured": false,
+      "id": 125,
+      "createdAt": "2026-06-14T20:24:22.089Z",
+      "updatedAt": "2026-06-14T20:24:22.089Z"
     }
   ],
-  "lastUpdated": "2026-06-14T20:19:45.769Z",
+  "lastUpdated": "2026-06-14T20:24:43.871Z",
   "version": "1.0.0"
 }
