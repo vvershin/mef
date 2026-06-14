@@ -1393,8 +1393,60 @@
       "id": 111,
       "createdAt": "2026-06-14T19:52:05.313Z",
       "updatedAt": "2026-06-14T19:52:05.313Z"
+    },
+    {
+      "title": "Сырная вечеринка в Carré France",
+      "description": "",
+      "category": "food",
+      "date": "2026-06-18",
+      "time": "19:00",
+      "isFree": false,
+      "registrationUrl": "https://yanzone.timepad.ru/event/3941096/",
+      "isFeatured": false,
+      "id": 112,
+      "createdAt": "2026-06-14T19:54:56.940Z",
+      "updatedAt": "2026-06-14T19:54:56.940Z"
+    },
+    {
+      "title": "Камерная беседа с французом о жизни во Франции и в России",
+      "description": "",
+      "category": "entertainment",
+      "date": "2026-06-23",
+      "time": "19:00",
+      "isFree": false,
+      "registrationUrl": "https://yanzone.timepad.ru/event/4023975/",
+      "isFeatured": false,
+      "id": 113,
+      "createdAt": "2026-06-14T19:57:13.123Z",
+      "updatedAt": "2026-06-14T19:57:13.123Z"
+    },
+    {
+      "title": "Караоке-вечер с французскими песнями",
+      "description": "",
+      "category": "music",
+      "date": "2026-06-25",
+      "time": "19:00",
+      "isFree": false,
+      "registrationUrl": "https://yanzone.timepad.ru/event/4023892/",
+      "isFeatured": false,
+      "id": 114,
+      "createdAt": "2026-06-14T19:58:52.884Z",
+      "updatedAt": "2026-06-14T19:58:52.884Z"
+    },
+    {
+      "title": "Арт-встреча «Амели: ольфакторное путешествие по культовому фильму»",
+      "description": "",
+      "category": "art",
+      "date": "2026-06-26",
+      "time": "19:30",
+      "isFree": false,
+      "registrationUrl": "https://frenchiemoscou.ru/societe/tproduct/646652721-978729108362-ameli-olfaktornoe-puteshestvie-po-kultov",
+      "isFeatured": false,
+      "id": 115,
+      "createdAt": "2026-06-14T20:01:56.200Z",
+      "updatedAt": "2026-06-14T20:01:56.200Z"
     }
   ],
-  "lastUpdated": "2026-06-14T19:52:50.457Z",
+  "lastUpdated": "2026-06-14T20:02:04.639Z",
   "version": "1.0.0"
 }
