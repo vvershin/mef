@@ -1445,8 +1445,47 @@
       "id": 115,
       "createdAt": "2026-06-14T20:01:56.200Z",
       "updatedAt": "2026-06-14T20:01:56.200Z"
+    },
+    {
+      "title": "Квест на французском",
+      "description": "Игра в стиле escape game объединяет размышления, культуру и языковое погружение",
+      "category": "language",
+      "date": "2026-06-21",
+      "time": "15:00",
+      "isFree": false,
+      "registrationUrl": "https://voroh.ru/event/1035965/",
+      "isFeatured": false,
+      "id": 116,
+      "createdAt": "2026-06-14T20:06:35.816Z",
+      "updatedAt": "2026-06-14T20:06:35.816Z"
+    },
+    {
+      "title": "Клуб французских песен",
+      "description": "",
+      "category": "music",
+      "date": "2026-06-24",
+      "time": "19:00",
+      "isFree": false,
+      "registrationUrl": "https://voroh.ru/event/1027014/",
+      "isFeatured": false,
+      "id": 117,
+      "createdAt": "2026-06-14T20:08:07.507Z",
+      "updatedAt": "2026-06-14T20:08:07.507Z"
+    },
+    {
+      "title": "Пикник с Клубом франкофонов Москвы",
+      "description": "",
+      "category": "language",
+      "date": "2026-06-28",
+      "time": "14:00",
+      "isFree": true,
+      "registrationUrl": "https://voroh.ru/event/1036326/",
+      "isFeatured": false,
+      "id": 118,
+      "createdAt": "2026-06-14T20:11:00.572Z",
+      "updatedAt": "2026-06-14T20:11:00.572Z"
     }
   ],
-  "lastUpdated": "2026-06-14T20:02:04.639Z",
+  "lastUpdated": "2026-06-14T20:11:02.904Z",
   "version": "1.0.0"
 }
