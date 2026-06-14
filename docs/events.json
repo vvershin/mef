@@ -1341,8 +1341,60 @@
       "id": 107,
       "createdAt": "2026-06-06T22:11:31.299Z",
       "updatedAt": "2026-06-06T22:11:31.299Z"
+    },
+    {
+      "title": "Французский разговорный клуб с игрой в петанк",
+      "description": "",
+      "category": "language",
+      "date": "2026-06-17",
+      "time": "12:00",
+      "isFree": false,
+      "registrationUrl": "https://t.me/la_petite_natalie/1432",
+      "isFeatured": false,
+      "id": 108,
+      "createdAt": "2026-06-14T19:45:06.162Z",
+      "updatedAt": "2026-06-14T19:45:06.162Z"
+    },
+    {
+      "title": "Концерт «Французский фактор» в ДК «Рассвет»",
+      "description": "",
+      "category": "music",
+      "date": "2026-06-20",
+      "time": "19:30",
+      "isFree": false,
+      "registrationUrl": "https://dkrassvet.space/events/facteur/",
+      "isFeatured": false,
+      "id": 109,
+      "createdAt": "2026-06-14T19:49:30.762Z",
+      "updatedAt": "2026-06-14T19:49:30.762Z"
+    },
+    {
+      "title": "Камерный концерт «Дебюсси и Равель»",
+      "description": "",
+      "category": "music",
+      "date": "2026-06-21",
+      "time": "19:30",
+      "isFree": false,
+      "registrationUrl": "https://dkrassvet.space/events/travailler/",
+      "isFeatured": false,
+      "id": 110,
+      "createdAt": "2026-06-14T19:50:37.313Z",
+      "updatedAt": "2026-06-14T19:50:37.313Z"
+    },
+    {
+      "title": "Квиз на французском по мотивам Burger Quiz",
+      "description": "Желательный уровень франсэ А2+",
+      "category": "language",
+      "date": "2026-06-16",
+      "time": "19:00",
+      "isFree": false,
+      "registrationUrl": "https://yanzone.timepad.ru/event/4022369/",
+      "isFeatured": false,
+      "id": 111,
+      "createdAt": "2026-06-14T19:52:05.313Z",
+      "updatedAt": "2026-06-14T19:52:05.313Z"
     }
   ],
-  "lastUpdated": "2026-06-07T09:45:16.751Z",
+  "lastUpdated": "2026-06-14T19:52:50.457Z",
   "version": "1.0.0"
 }
