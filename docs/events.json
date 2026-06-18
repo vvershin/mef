@@ -1666,8 +1666,34 @@
       "id": 132,
       "createdAt": "2026-06-15T07:34:24.099Z",
       "updatedAt": "2026-06-15T07:34:24.099Z"
+    },
+    {
+      "title": "Бесплатная встреча французского ораторского клуба",
+      "description": "",
+      "category": "language",
+      "date": "2026-06-19",
+      "time": "19:00",
+      "isFree": true,
+      "registrationUrl": "https://gorky-park.timepad.ru/event/3204596/",
+      "isFeatured": false,
+      "id": 133,
+      "createdAt": "2026-06-18T11:33:09.687Z",
+      "updatedAt": "2026-06-18T11:33:09.687Z"
+    },
+    {
+      "title": "Пешеходная экскурсия «Французские кварталы Москвы»",
+      "description": "",
+      "category": "entertainment",
+      "date": "2026-06-24",
+      "time": "19:00",
+      "isFree": false,
+      "registrationUrl": "https://moscowwalking.ru/excursions/563436/",
+      "isFeatured": false,
+      "id": 134,
+      "createdAt": "2026-06-18T14:36:46.745Z",
+      "updatedAt": "2026-06-18T14:36:46.745Z"
     }
   ],
-  "lastUpdated": "2026-06-18T09:01:29.379Z",
+  "lastUpdated": "2026-06-18T14:36:47.954Z",
   "version": "1.0.0"
 }
