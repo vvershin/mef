@@ -1692,8 +1692,34 @@
       "id": 134,
       "createdAt": "2026-06-18T14:36:46.745Z",
       "updatedAt": "2026-06-18T14:36:46.745Z"
+    },
+    {
+      "title": "Винная дегустация «Креманы и круассаны»",
+      "description": "",
+      "category": "food",
+      "date": "2026-06-20",
+      "time": "13:00",
+      "isFree": false,
+      "registrationUrl": "https://simplewine.ru/events/549586/",
+      "isFeatured": false,
+      "id": 135,
+      "createdAt": "2026-06-18T14:39:58.424Z",
+      "updatedAt": "2026-06-18T14:39:58.424Z"
+    },
+    {
+      "title": "Винная дегустация «Бранч во французском стиле»",
+      "description": "",
+      "category": "food",
+      "date": "2026-06-21",
+      "time": "13:00",
+      "isFree": false,
+      "registrationUrl": "https://simplewine.ru/events/547505/",
+      "isFeatured": false,
+      "id": 136,
+      "createdAt": "2026-06-18T14:40:37.389Z",
+      "updatedAt": "2026-06-18T14:40:37.389Z"
     }
   ],
-  "lastUpdated": "2026-06-18T14:36:47.954Z",
+  "lastUpdated": "2026-06-18T14:40:39.290Z",
   "version": "1.0.0"
 }
