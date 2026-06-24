@@ -1964,8 +1964,21 @@
       "id": 155,
       "createdAt": "2026-06-24T19:45:52.411Z",
       "updatedAt": "2026-06-24T19:45:52.411Z"
+    },
+    {
+      "title": "Лекция «Миф об Аркадии и образ Канады как «французского рая»",
+      "description": "",
+      "category": "entertainment",
+      "date": "2026-07-09",
+      "time": "19:00",
+      "isFree": true,
+      "registrationUrl": "https://afisha.timepad.ru/moscow/events/mif-ob-arkadii-i-obraz-kanady-kak-francuzskogo-raya-4050605",
+      "isFeatured": false,
+      "id": 156,
+      "createdAt": "2026-06-24T19:47:39.793Z",
+      "updatedAt": "2026-06-24T19:47:39.793Z"
     }
   ],
-  "lastUpdated": "2026-06-24T19:45:53.377Z",
+  "lastUpdated": "2026-06-24T19:47:40.825Z",
   "version": "1.0.0"
 }
