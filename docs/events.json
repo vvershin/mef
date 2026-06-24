@@ -1886,8 +1886,86 @@
       "id": 149,
       "createdAt": "2026-06-24T19:39:00.165Z",
       "updatedAt": "2026-06-24T19:39:00.165Z"
+    },
+    {
+      "title": "Разговорный клуб с носителем Table Moscovite",
+      "description": "",
+      "category": "language",
+      "date": "2026-07-04",
+      "time": "19:00",
+      "isFree": false,
+      "registrationUrl": "https://afisha.timepad.ru/moscow/events/francuzskiy-razgovornyy-klub-4050110",
+      "isFeatured": false,
+      "id": 150,
+      "createdAt": "2026-06-24T19:40:11.583Z",
+      "updatedAt": "2026-06-24T19:40:11.583Z"
+    },
+    {
+      "title": "Разговорный клуб с носителем Table Moscovite",
+      "description": "",
+      "category": "language",
+      "date": "2026-07-11",
+      "time": "19:00",
+      "isFree": false,
+      "registrationUrl": "https://afisha.timepad.ru/moscow/events/francuzskiy-razgovornyy-klub-4050110",
+      "isFeatured": false,
+      "id": 151,
+      "createdAt": "2026-06-24T19:40:58.354Z",
+      "updatedAt": "2026-06-24T19:40:58.354Z"
+    },
+    {
+      "title": "Разговорный клуб с носителем Table Moscovite",
+      "description": "",
+      "category": "language",
+      "date": "2026-07-18",
+      "time": "19:00",
+      "isFree": false,
+      "registrationUrl": "https://afisha.timepad.ru/moscow/events/francuzskiy-razgovornyy-klub-4050110",
+      "isFeatured": false,
+      "id": 152,
+      "createdAt": "2026-06-24T19:41:24.584Z",
+      "updatedAt": "2026-06-24T19:41:24.584Z"
+    },
+    {
+      "title": "Разговорный клуб с носителем Table Moscovite",
+      "description": "",
+      "category": "language",
+      "date": "2026-07-25",
+      "time": "19:00",
+      "isFree": false,
+      "registrationUrl": "https://afisha.timepad.ru/moscow/events/francuzskiy-razgovornyy-klub-4050110",
+      "isFeatured": false,
+      "id": 153,
+      "createdAt": "2026-06-24T19:41:57.750Z",
+      "updatedAt": "2026-06-24T19:41:57.750Z"
+    },
+    {
+      "title": "Разговорный клуб с носителем Table Moscovite",
+      "description": "",
+      "category": "language",
+      "date": "2026-08-01",
+      "time": "19:00",
+      "isFree": false,
+      "registrationUrl": "https://afisha.timepad.ru/moscow/events/francuzskiy-razgovornyy-klub-4050110",
+      "isFeatured": false,
+      "id": 154,
+      "createdAt": "2026-06-24T19:42:24.250Z",
+      "updatedAt": "2026-06-24T19:42:24.250Z"
+    },
+    {
+      "title": "Премьерный показ «Фальшивомонетчик» с обсуждением",
+      "description": "",
+      "category": "cinema",
+      "date": "2026-07-04",
+      "time": "18:30",
+      "isFree": false,
+      "registrationUrl": "https://arbatkino.ru/release/10078235?date=2026-07-04",
+      "isFeatured": false,
+      "id": 155,
+      "createdAt": "2026-06-24T19:45:52.411Z",
+      "updatedAt": "2026-06-24T19:45:52.411Z"
     }
   ],
-  "lastUpdated": "2026-06-24T19:39:14.030Z",
+  "lastUpdated": "2026-06-24T19:45:53.377Z",
   "version": "1.0.0"
 }
