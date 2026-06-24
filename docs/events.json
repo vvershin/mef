@@ -1977,8 +1977,62 @@
       "id": 156,
       "createdAt": "2026-06-24T19:47:39.793Z",
       "updatedAt": "2026-06-24T19:47:39.793Z"
+    },
+    {
+      "title": "Французский разговорный клуб (A2-B1)",
+      "description": "",
+      "category": "language",
+      "date": "2026-06-27",
+      "time": "12:00",
+      "location": "Франкотека",
+      "isFree": false,
+      "registrationUrl": "https://libfl.ru/ru/event/francuzskiy-razgovornyy-klub-a2-b",
+      "isFeatured": false,
+      "id": 157,
+      "createdAt": "2026-06-24T19:53:16.237Z",
+      "updatedAt": "2026-06-24T19:53:16.237Z"
+    },
+    {
+      "title": "Французский разговорный клуб (B2-C1)",
+      "description": "",
+      "category": "language",
+      "date": "2026-06-27",
+      "time": "13:15",
+      "location": "Франкотека",
+      "isFree": false,
+      "registrationUrl": "https://libfl.ru/ru/event/francuzskiy-razgovornyy-klub-v1-b2",
+      "isFeatured": false,
+      "id": 158,
+      "createdAt": "2026-06-24T19:54:15.989Z",
+      "updatedAt": "2026-06-24T19:54:15.989Z"
+    },
+    {
+      "title": "Бесплатная лекция «Французский скульптор Жан Антуан Гудон»",
+      "description": "",
+      "category": "entertainment",
+      "date": "2026-06-29",
+      "time": "18:30",
+      "isFree": true,
+      "registrationUrl": "https://libfl.ru/ru/event/zhan-antuan-gudon-sedmaya-chast",
+      "isFeatured": false,
+      "id": 159,
+      "createdAt": "2026-06-24T19:55:44.203Z",
+      "updatedAt": "2026-06-24T19:55:44.203Z"
+    },
+    {
+      "title": "Бесплатный спектакль «Пламя Парижа»",
+      "description": "Историческая авторская постановка",
+      "category": "theater",
+      "date": "2026-07-11",
+      "time": "16:00",
+      "isFree": true,
+      "registrationUrl": "https://frankoteka-libfl.timepad.ru/event/4042874/",
+      "isFeatured": false,
+      "id": 160,
+      "createdAt": "2026-06-24T19:56:59.207Z",
+      "updatedAt": "2026-06-24T19:56:59.207Z"
     }
   ],
-  "lastUpdated": "2026-06-24T19:47:40.825Z",
+  "lastUpdated": "2026-06-24T19:58:21.696Z",
   "version": "1.0.0"
 }
