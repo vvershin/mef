@@ -1822,8 +1822,59 @@
       "id": 144,
       "createdAt": "2026-06-22T12:27:35.256Z",
       "updatedAt": "2026-06-22T12:27:35.256Z"
+    },
+    {
+      "title": "Кинопоказ «Новая волна» с обсуждением",
+      "description": "",
+      "category": "cinema",
+      "date": "2026-06-25",
+      "time": "19:30",
+      "isFree": false,
+      "registrationUrl": "https://karofilm.ru/film/15812?date=2026-06-25",
+      "isFeatured": false,
+      "id": 145,
+      "createdAt": "2026-06-24T09:26:04.461Z",
+      "updatedAt": "2026-06-24T09:26:04.461Z"
+    },
+    {
+      "title": "Лекция «Юбилей Ива Сен-Лорана. Образ в моде и кино»",
+      "description": "",
+      "category": "entertainment",
+      "date": "2026-06-24",
+      "time": "19:30",
+      "isFree": false,
+      "registrationUrl": "https://gum.ru/kinozal/event/movie/id/36004399/",
+      "isFeatured": false,
+      "id": 146,
+      "createdAt": "2026-06-24T09:27:09.099Z",
+      "updatedAt": "2026-06-24T09:27:09.099Z"
+    },
+    {
+      "title": "Спектакль-концерт «Письма Пиаф»",
+      "description": "",
+      "category": "music",
+      "date": "2026-06-28",
+      "time": "20:00",
+      "isFree": false,
+      "registrationUrl": "https://gnezdogluharya.ru/concerts/alyona-babenko-toute-la-vie-i-mari-berso-pisma-piaf-28-6-2026-6840",
+      "isFeatured": false,
+      "id": 147,
+      "createdAt": "2026-06-24T09:28:55.465Z",
+      "updatedAt": "2026-06-24T09:28:55.465Z"
+    },
+    {
+      "title": "Бесплатная встреча разговорного клуба ‘On est tous là’",
+      "description": "",
+      "category": "language",
+      "date": "2026-06-29",
+      "isFree": true,
+      "registrationUrl": "https://t.me/onestousla",
+      "isFeatured": false,
+      "id": 148,
+      "createdAt": "2026-06-24T09:57:29.663Z",
+      "updatedAt": "2026-06-24T09:57:29.663Z"
     }
   ],
-  "lastUpdated": "2026-06-22T12:32:00.356Z",
+  "lastUpdated": "2026-06-24T09:57:33.097Z",
   "version": "1.0.0"
 }
