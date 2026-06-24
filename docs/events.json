@@ -788,14 +788,14 @@
       "title": "Французские фильмы в кинотеатрах",
       "description": "",
       "category": "cinema",
-      "date": "2026-06-18",
-      "endDate": "2026-06-24",
+      "date": "2026-06-25",
+      "endDate": "2026-07-01",
       "isFree": false,
-      "registrationUrl": "https://t.me/moscouenfrancais/9387",
+      "registrationUrl": "https://t.me/moscouenfrancais/9431",
       "isFeatured": true,
       "id": 64,
       "createdAt": "2026-05-31T23:25:23.245Z",
-      "updatedAt": "2026-06-18T09:01:25.166Z"
+      "updatedAt": "2026-06-24T19:29:42.656Z"
     },
     {
       "title": "«Русские сонеты» Марка Саньоля",
@@ -1875,6 +1875,6 @@
       "updatedAt": "2026-06-24T09:57:29.663Z"
     }
   ],
-  "lastUpdated": "2026-06-24T10:46:08.060Z",
+  "lastUpdated": "2026-06-24T19:29:45.035Z",
   "version": "1.0.0"
 }
