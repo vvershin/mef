@@ -850,13 +850,13 @@
       "title": "Кулинарная вечеринка «Ночь в Париже»",
       "description": "",
       "category": "food",
-      "date": "2026-06-28",
+      "date": "2026-07-28",
       "isFree": false,
       "registrationUrl": "https://culinaryon.ru/calendar/2026-07-28noc-v-parize-socnyi-steik-midii-po-francuzski-i-krem-briule/",
       "isFeatured": false,
       "id": 69,
       "createdAt": "2026-05-31T23:29:08.832Z",
-      "updatedAt": "2026-05-31T23:29:08.832Z"
+      "updatedAt": "2026-06-25T15:50:51.367Z"
     },
     {
       "title": "Разговорный клуб «Coucou, chouchou» ",
@@ -2033,6 +2033,6 @@
       "updatedAt": "2026-06-24T19:56:59.207Z"
     }
   ],
-  "lastUpdated": "2026-06-24T19:58:21.696Z",
+  "lastUpdated": "2026-06-25T15:51:12.230Z",
   "version": "1.0.0"
 }
