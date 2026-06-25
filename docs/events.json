@@ -2071,8 +2071,22 @@
       "id": 163,
       "createdAt": "2026-06-25T19:00:31.180Z",
       "updatedAt": "2026-06-25T19:00:31.180Z"
+    },
+    {
+      "title": "Книжная встреча «Немного солнца в холодной воде»",
+      "description": "Обсуждение романа Франсуазы Саган. Специальная цена для подписчиков Moscou en français",
+      "category": "entertainment",
+      "date": "2026-06-27",
+      "time": "12:00",
+      "location": "Geraldine",
+      "isFree": false,
+      "registrationUrl": "https://t.me/francais_msu/966",
+      "isFeatured": false,
+      "id": 164,
+      "createdAt": "2026-06-25T19:04:10.429Z",
+      "updatedAt": "2026-06-25T19:04:10.429Z"
     }
   ],
-  "lastUpdated": "2026-06-25T19:00:32.315Z",
+  "lastUpdated": "2026-06-25T19:04:12.174Z",
   "version": "1.0.0"
 }
