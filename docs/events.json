@@ -2058,8 +2058,21 @@
       "id": 162,
       "createdAt": "2026-06-25T18:57:21.785Z",
       "updatedAt": "2026-06-25T18:57:21.785Z"
+    },
+    {
+      "title": "Спецпоказ «Мужчина и женщина» в «Октябре»",
+      "description": "",
+      "category": "cinema",
+      "date": "2026-07-09",
+      "time": "20:00",
+      "isFree": false,
+      "registrationUrl": "https://karofilm.ru/film/16177?date=2026-07-09",
+      "isFeatured": false,
+      "id": 163,
+      "createdAt": "2026-06-25T19:00:31.180Z",
+      "updatedAt": "2026-06-25T19:00:31.180Z"
     }
   ],
-  "lastUpdated": "2026-06-25T18:57:22.976Z",
+  "lastUpdated": "2026-06-25T19:00:32.315Z",
   "version": "1.0.0"
 }
