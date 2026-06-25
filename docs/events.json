@@ -2044,8 +2044,22 @@
       "id": 161,
       "createdAt": "2026-06-25T15:53:16.648Z",
       "updatedAt": "2026-06-25T15:53:16.648Z"
+    },
+    {
+      "title": "Французский разговорный клуб + петанк",
+      "description": "",
+      "category": "language",
+      "date": "2026-06-27",
+      "time": "13:00",
+      "location": "Кафе Cochonnet в Парке Горького",
+      "isFree": false,
+      "registrationUrl": "https://t.me/la_petite_natalie/1458",
+      "isFeatured": false,
+      "id": 162,
+      "createdAt": "2026-06-25T18:57:21.785Z",
+      "updatedAt": "2026-06-25T18:57:21.785Z"
     }
   ],
-  "lastUpdated": "2026-06-25T15:53:18.213Z",
+  "lastUpdated": "2026-06-25T18:57:22.976Z",
   "version": "1.0.0"
 }
