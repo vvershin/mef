@@ -2031,8 +2031,21 @@
       "id": 160,
       "createdAt": "2026-06-24T19:56:59.207Z",
       "updatedAt": "2026-06-24T19:56:59.207Z"
+    },
+    {
+      "title": "Кулинарная вечеринка «Классика Франции»",
+      "description": "",
+      "category": "food",
+      "date": "2026-07-15",
+      "time": "19:00",
+      "isFree": false,
+      "registrationUrl": "https://culinaryon.ru/calendar/2026-07-15klassika-francii-nisuaz-kare-iagnenka-i-profitroli/",
+      "isFeatured": false,
+      "id": 161,
+      "createdAt": "2026-06-25T15:53:16.648Z",
+      "updatedAt": "2026-06-25T15:53:16.648Z"
     }
   ],
-  "lastUpdated": "2026-06-25T15:51:12.230Z",
+  "lastUpdated": "2026-06-25T15:53:18.213Z",
   "version": "1.0.0"
 }
