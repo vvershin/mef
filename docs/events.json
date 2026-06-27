@@ -2098,8 +2098,34 @@
       "id": 165,
       "createdAt": "2026-06-27T20:02:11.131Z",
       "updatedAt": "2026-06-27T20:02:11.131Z"
+    },
+    {
+      "title": "Экскурсия «Тверская и окрестности на французский манер»",
+      "description": "",
+      "category": "entertainment",
+      "date": "2026-08-12",
+      "time": "18:30",
+      "isFree": false,
+      "registrationUrl": "https://afisha.timepad.ru/moscow/events/ekskursiya-tverskaya-i-okrestnosti-na-francuzskiy-maner-3562813",
+      "isFeatured": false,
+      "id": 166,
+      "createdAt": "2026-06-27T20:10:45.037Z",
+      "updatedAt": "2026-06-27T20:10:45.037Z"
+    },
+    {
+      "title": "Экскурсия «Французский дух в Хамовниках»",
+      "description": "",
+      "category": "entertainment",
+      "date": "2026-08-19",
+      "time": "18:30",
+      "isFree": false,
+      "registrationUrl": "https://afisha.timepad.ru/moscow/events/ekskursiya-francuzskiy-duh-v-hamovnikah-3959891",
+      "isFeatured": false,
+      "id": 167,
+      "createdAt": "2026-06-27T20:12:25.552Z",
+      "updatedAt": "2026-06-27T20:12:25.552Z"
     }
   ],
-  "lastUpdated": "2026-06-27T20:02:12.378Z",
+  "lastUpdated": "2026-06-27T20:12:26.550Z",
   "version": "1.0.0"
 }
