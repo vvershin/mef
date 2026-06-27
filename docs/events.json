@@ -2085,8 +2085,21 @@
       "id": 164,
       "createdAt": "2026-06-25T19:04:10.429Z",
       "updatedAt": "2026-06-25T19:04:10.429Z"
+    },
+    {
+      "title": "Кинопоказ «1874: Рождение импрессионизма» с обсуждением",
+      "description": "Фильм представит искусствовед Екатерина Лайтер",
+      "category": "cinema",
+      "date": "2026-07-10",
+      "time": "19:00",
+      "isFree": false,
+      "registrationUrl": "https://www.tretyakovgallery.ru/cinema/o/1874-rozhdenie-impressionizma/",
+      "isFeatured": false,
+      "id": 165,
+      "createdAt": "2026-06-27T20:02:11.131Z",
+      "updatedAt": "2026-06-27T20:02:11.131Z"
     }
   ],
-  "lastUpdated": "2026-06-25T19:04:12.174Z",
+  "lastUpdated": "2026-06-27T20:02:12.378Z",
   "version": "1.0.0"
 }
