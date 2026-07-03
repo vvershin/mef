@@ -2124,8 +2124,21 @@
       "id": 167,
       "createdAt": "2026-06-27T20:12:25.552Z",
       "updatedAt": "2026-06-27T20:12:25.552Z"
+    },
+    {
+      "title": "Киноужин «Полночь в Париже»",
+      "description": "",
+      "category": "cinema",
+      "date": "2026-07-31",
+      "time": "19:30",
+      "isFree": false,
+      "registrationUrl": "https://odmo-space.timepad.ru/event/4065141/",
+      "isFeatured": false,
+      "id": 168,
+      "createdAt": "2026-07-03T21:58:28.046Z",
+      "updatedAt": "2026-07-03T21:58:28.046Z"
     }
   ],
-  "lastUpdated": "2026-06-27T20:12:26.550Z",
+  "lastUpdated": "2026-07-03T21:58:31.727Z",
   "version": "1.0.0"
 }
