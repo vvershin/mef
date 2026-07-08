@@ -2137,8 +2137,74 @@
       "id": 168,
       "createdAt": "2026-07-03T21:58:28.046Z",
       "updatedAt": "2026-07-03T21:58:28.046Z"
+    },
+    {
+      "title": "Кинопрограмма «Имя: Брижит»",
+      "description": "Ретроспектива фильмов с Брижит Бардо",
+      "category": "cinema",
+      "date": "2026-07-09",
+      "endDate": "2026-07-12",
+      "location": "Художественный",
+      "isFree": false,
+      "registrationUrl": "https://cinema1909.ru/events/Brigitte",
+      "isFeatured": false,
+      "id": 169,
+      "createdAt": "2026-07-08T12:24:48.622Z",
+      "updatedAt": "2026-07-08T12:24:48.622Z"
+    },
+    {
+      "title": "Концерт французской музыки «Огни Парижа»",
+      "description": "",
+      "category": "music",
+      "date": "2026-07-09",
+      "time": "20:00",
+      "isFree": false,
+      "registrationUrl": "https://jamclub.ticketscloud.org/e/6a1993592f5875125fedf5a8?partner_id=645e37ade4ff99f7697cb810",
+      "isFeatured": false,
+      "id": 170,
+      "createdAt": "2026-07-08T12:25:29.337Z",
+      "updatedAt": "2026-07-08T12:25:29.337Z"
+    },
+    {
+      "title": "Арт-показ «Пианистка» с обсуждением",
+      "description": "",
+      "category": "cinema",
+      "date": "2026-07-09",
+      "time": "19:30",
+      "isFree": false,
+      "registrationUrl": "https://kinomax.ru/order/3703716",
+      "isFeatured": false,
+      "id": 171,
+      "createdAt": "2026-07-08T12:26:18.701Z",
+      "updatedAt": "2026-07-08T12:26:18.701Z"
+    },
+    {
+      "title": "Кинопоказ «Амели» в летнем кинотеатре ",
+      "description": "",
+      "category": "cinema",
+      "date": "2026-07-09",
+      "time": "21:40",
+      "isFree": false,
+      "registrationUrl": "https://summercinema.ru/movies/ameli_1",
+      "isFeatured": false,
+      "id": 172,
+      "createdAt": "2026-07-08T12:27:22.651Z",
+      "updatedAt": "2026-07-08T12:27:22.651Z"
+    },
+    {
+      "title": "Кулинарный мастер-класс «Французская классика»",
+      "description": "",
+      "category": "food",
+      "date": "2026-07-10",
+      "time": "19:00",
+      "isFree": false,
+      "registrationUrl": "https://novikovspace.com/school/masterclasses#session=17788",
+      "isFeatured": false,
+      "id": 173,
+      "createdAt": "2026-07-08T12:28:09.550Z",
+      "updatedAt": "2026-07-08T12:28:09.550Z"
     }
   ],
-  "lastUpdated": "2026-07-08T12:15:23.466Z",
+  "lastUpdated": "2026-07-08T12:28:29.081Z",
   "version": "1.0.0"
 }
