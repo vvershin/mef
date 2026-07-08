@@ -12,8 +12,8 @@ import {
   loadOtherCities, saveOtherCities, downloadOtherCitiesJSON, importOtherCitiesFromJSON,
 } from './utils/storage';
 import { GitHubSettingsModal } from './components/GitHubSettingsModal';
-import { GitHubSettings, loadGitHubSettings, publishFileToGitHub } from './utils/github';
-import { Plus, Download, Upload, Trash2, Github, Settings } from 'lucide-react';
+import { GitHubSettings, loadGitHubSettings, publishFileToGitHub, fetchFileFromGitHub } from './utils/github';
+import { Plus, Download, Trash2, Github, Settings, ChevronDown, FileDown, FileUp } from 'lucide-react';
 
 type Tab = 'events' | 'places' | 'other-cities';
 
@@ -22,6 +22,9 @@ function App() {
   const [ghSettings, setGhSettings] = useState<GitHubSettings | null>(loadGitHubSettings);
   const [showGhSettings, setShowGhSettings] = useState(false);
   const [publishing, setPublishing] = useState(false);
+  const [pulling, setPulling] = useState(false);
+  const [fileMenuOpen, setFileMenuOpen] = useState(false);
+  const [gitMenuOpen, setGitMenuOpen] = useState(false);
 
   const [events, setEvents] = useState<Event[]>([]);
   const [editingEvent, setEditingEvent] = useState<Event | null>(null);
@@ -216,6 +219,39 @@ function App() {
     }
   };
 
+  // ── GitHub Pull ──────────────────────────────────────────────
+  const handlePullFromGitHub = async () => {
+    if (!ghSettings) { setShowGhSettings(true); return; }
+    const fileMap: Record<Tab, { path: string; label: string }> = {
+      events: { path: 'docs/events.json', label: 'events.json' },
+      places: { path: 'docs/places.json', label: 'places.json' },
+      'other-cities': { path: 'docs/other-cities.json', label: 'other-cities.json' },
+    };
+    const { path, label } = fileMap[tab];
+    setPulling(true);
+    try {
+      const data = await fetchFileFromGitHub(ghSettings, path) as any;
+      if (isEvents) {
+        const pulled: Event[] = data.events ?? [];
+        setEvents(pulled);
+        saveEvents(pulled);
+      } else if (isOtherCities) {
+        const pulled: OtherCityPlace[] = data.places ?? [];
+        setOtherCities(pulled);
+        saveOtherCities(pulled);
+      } else {
+        const pulled: Place[] = data.places ?? [];
+        setPlaces(pulled);
+        savePlaces(pulled);
+      }
+      alert(`✅ ${label} загружен из GitHub!`);
+    } catch (err) {
+      alert('Ошибка загрузки: ' + (err as Error).message);
+    } finally {
+      setPulling(false);
+    }
+  };
+
   // ── Render ────────────────────────────────────────────────
   const isEvents = tab === 'events';
   const isOtherCities = tab === 'other-cities';
@@ -259,7 +295,7 @@ function App() {
               <h1 className="text-xl font-bold text-gray-900">
                 {isEvents ? 'Управление мероприятиями' : isOtherCities ? 'Другие города' : 'Места в Москве'}
               </h1>
-              <div className="flex gap-2">
+              <div className="flex gap-2 items-center">
                 {isEvents && (
                   <button
                     onClick={handleCleanOld}
@@ -269,47 +305,95 @@ function App() {
                     Очистить старые
                   </button>
                 )}
-                <label className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 cursor-pointer">
-                  <Upload size={18} />
-                  Импорт
-                  <input
-                    type="file"
-                    accept=".json"
-                    onChange={isEvents ? handleImportEvents : isOtherCities ? handleImportOtherCities : handleImportPlaces}
-                    className="hidden"
-                  />
-                </label>
-                <button
-                  onClick={() => isEvents ? downloadJSON(events) : isOtherCities ? downloadOtherCitiesJSON(otherCities) : downloadPlacesJSON(places)}
-                  className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
-                >
-                  <Download size={18} />
-                  Экспорт JSON
-                </button>
+
+                {/* Файлы dropdown */}
+                <div className="relative">
+                  <button
+                    onClick={() => { setFileMenuOpen(!fileMenuOpen); setGitMenuOpen(false); }}
+                    className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
+                  >
+                    <FileDown size={18} />
+                    Файлы
+                    <ChevronDown size={16} />
+                  </button>
+                  {fileMenuOpen && (
+                    <>
+                      <div className="fixed inset-0 z-10" onClick={() => setFileMenuOpen(false)} />
+                      <div className="absolute right-0 mt-2 w-52 bg-white border border-gray-200 rounded-md shadow-lg z-20 py-1">
+                        <label className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 cursor-pointer">
+                          <FileUp size={16} />
+                          Импорт JSON
+                          <input
+                            type="file"
+                            accept=".json"
+                            onChange={isEvents ? handleImportEvents : isOtherCities ? handleImportOtherCities : handleImportPlaces}
+                            className="hidden"
+                          />
+                        </label>
+                        <button
+                          onClick={() => {
+                            isEvents ? downloadJSON(events) : isOtherCities ? downloadOtherCitiesJSON(otherCities) : downloadPlacesJSON(places);
+                            setFileMenuOpen(false);
+                          }}
+                          className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                        >
+                          <FileDown size={16} />
+                          Экспорт JSON
+                        </button>
+                      </div>
+                    </>
+                  )}
+                </div>
+
+                {/* GitHub dropdown */}
+                <div className="relative">
+                  <button
+                    onClick={() => { setGitMenuOpen(!gitMenuOpen); setFileMenuOpen(false); }}
+                    className="flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-700"
+                  >
+                    <Github size={18} />
+                    GitHub
+                    <ChevronDown size={16} />
+                  </button>
+                  {gitMenuOpen && (
+                    <>
+                      <div className="fixed inset-0 z-10" onClick={() => setGitMenuOpen(false)} />
+                      <div className="absolute right-0 mt-2 w-52 bg-white border border-gray-200 rounded-md shadow-lg z-20 py-1">
+                        <button
+                          onClick={() => { handlePublish(); setGitMenuOpen(false); }}
+                          disabled={publishing}
+                          className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+                        >
+                          <Github size={16} />
+                          {publishing ? 'Публикация...' : 'Опубликовать'}
+                        </button>
+                        <button
+                          onClick={() => { handlePullFromGitHub(); setGitMenuOpen(false); }}
+                          disabled={pulling}
+                          className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+                        >
+                          <Download size={16} />
+                          {pulling ? 'Загрузка...' : 'Загрузить из GitHub'}
+                        </button>
+                        <div className="border-t border-gray-100 my-1" />
+                        <button
+                          onClick={() => { setShowGhSettings(true); setGitMenuOpen(false); }}
+                          className="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                        >
+                          <Settings size={16} />
+                          Настройки GitHub
+                        </button>
+                      </div>
+                    </>
+                  )}
+                </div>
+
                 <button
                   onClick={isEvents ? handleCreateEvent : isOtherCities ? handleCreateOtherCity : handleCreatePlace}
                   className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
                 >
                   <Plus size={18} />
                   {isEvents ? 'Создать мероприятие' : 'Создать место'}
-                </button>
-
-                <button
-                  onClick={handlePublish}
-                  disabled={publishing}
-                  className="flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-md hover:bg-gray-700 disabled:opacity-50"
-                  title="Опубликовать в GitHub"
-                >
-                  <Github size={18} />
-                  {publishing ? 'Публикация...' : 'В GitHub'}
-                </button>
-
-                <button
-                  onClick={() => setShowGhSettings(true)}
-                  className="flex items-center justify-center p-2 border border-gray-300 rounded-md text-gray-500 hover:bg-gray-50"
-                  title="Настройки GitHub"
-                >
-                  <Settings size={18} />
                 </button>
               </div>
             </div>

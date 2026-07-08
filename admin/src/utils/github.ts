@@ -33,6 +33,25 @@ const getFileSha = async (
   return data.sha ?? null;
 };
 
+export const fetchFileFromGitHub = async (
+  settings: GitHubSettings,
+  path: string
+): Promise<object> => {
+  const res = await fetch(
+    `https://api.github.com/repos/${settings.owner}/${settings.repo}/contents/${path}?ref=${settings.branch}`,
+    { headers: { Authorization: `Bearer ${settings.token}`, Accept: 'application/vnd.github+json' } }
+  );
+
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.message || `GitHub API error ${res.status}`);
+  }
+
+  const data = await res.json();
+  const content = decodeURIComponent(escape(atob(data.content)));
+  return JSON.parse(content);
+};
+
 export const publishFileToGitHub = async (
   settings: GitHubSettings,
   path: string,

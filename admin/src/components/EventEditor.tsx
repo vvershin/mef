@@ -11,7 +11,7 @@ interface EventEditorProps {
 }
 
 export const EventEditor: React.FC<EventEditorProps> = ({ event, onSave, onClose }) => {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm({
+  const { register, handleSubmit, watch } = useForm({
     defaultValues: event ? {
       ...event,
       date: event.date,
