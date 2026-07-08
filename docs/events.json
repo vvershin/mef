@@ -2203,8 +2203,47 @@
       "id": 173,
       "createdAt": "2026-07-08T12:28:09.550Z",
       "updatedAt": "2026-07-08T12:28:09.550Z"
+    },
+    {
+      "title": "Пешеходная экскурсия «Французские кварталы Москвы»",
+      "description": "",
+      "category": "entertainment",
+      "date": "2026-07-11",
+      "time": "16:00",
+      "isFree": false,
+      "registrationUrl": "https://moscowwalking.ru/excursions/563436/",
+      "isFeatured": false,
+      "id": 174,
+      "createdAt": "2026-07-08T12:29:24.521Z",
+      "updatedAt": "2026-07-08T12:29:24.521Z"
+    },
+    {
+      "title": "Вечер французской музыки с группой «Елисейские поля»",
+      "description": "",
+      "category": "music",
+      "date": "2026-07-12",
+      "time": "20:30",
+      "isFree": false,
+      "registrationUrl": "https://jamclub.ticketscloud.org/e/69e8d551b89da03f2367cf81?partner_id=645e37ade4ff99f7697cb810",
+      "isFeatured": false,
+      "id": 175,
+      "createdAt": "2026-07-08T12:30:01.686Z",
+      "updatedAt": "2026-07-08T12:30:01.686Z"
+    },
+    {
+      "title": "Кинопоказ «Мужчина и женщина» в летнем кинотеатре",
+      "description": "",
+      "category": "cinema",
+      "date": "2026-07-12",
+      "time": "21:40",
+      "isFree": false,
+      "registrationUrl": "https://summercinema.ru/movies/muzhchina-i-zhenshchina-versiya-s-subtitrami",
+      "isFeatured": false,
+      "id": 176,
+      "createdAt": "2026-07-08T12:31:04.151Z",
+      "updatedAt": "2026-07-08T12:31:04.151Z"
     }
   ],
-  "lastUpdated": "2026-07-08T12:28:29.081Z",
+  "lastUpdated": "2026-07-08T12:31:08.463Z",
   "version": "1.0.0"
 }
