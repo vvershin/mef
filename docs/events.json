@@ -2255,8 +2255,21 @@
       "id": 177,
       "createdAt": "2026-07-09T11:53:03.927Z",
       "updatedAt": "2026-07-09T11:53:03.927Z"
+    },
+    {
+      "title": "Бесплатная встреча французского ораторского клуба",
+      "description": "",
+      "category": "language",
+      "date": "2026-07-17",
+      "time": "19:00",
+      "isFree": true,
+      "registrationUrl": "https://gorky-park.timepad.ru/event/3204596/",
+      "isFeatured": false,
+      "id": 178,
+      "createdAt": "2026-07-09T12:31:46.862Z",
+      "updatedAt": "2026-07-09T12:31:46.862Z"
     }
   ],
-  "lastUpdated": "2026-07-09T11:53:06.719Z",
+  "lastUpdated": "2026-07-09T12:31:49.706Z",
   "version": "1.0.0"
 }
