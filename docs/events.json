@@ -2307,8 +2307,34 @@
       "id": 181,
       "createdAt": "2026-07-09T12:50:11.292Z",
       "updatedAt": "2026-07-09T12:50:11.292Z"
+    },
+    {
+      "title": "Винная дегустация «Французский бранч: креманы и круассаны»",
+      "description": "",
+      "category": "food",
+      "date": "2026-07-11",
+      "time": "14:00",
+      "isFree": false,
+      "registrationUrl": "https://simplewine.ru/events/557563/",
+      "isFeatured": false,
+      "id": 182,
+      "createdAt": "2026-07-09T13:10:53.183Z",
+      "updatedAt": "2026-07-09T13:10:53.183Z"
+    },
+    {
+      "title": "Винная дегустация «Путешествие в Шампань»",
+      "description": "",
+      "category": "food",
+      "date": "2026-07-11",
+      "time": "19:00",
+      "isFree": false,
+      "registrationUrl": "https://simplewine.ru/events/557141/",
+      "isFeatured": false,
+      "id": 183,
+      "createdAt": "2026-07-09T13:11:23.848Z",
+      "updatedAt": "2026-07-09T13:11:23.848Z"
     }
   ],
-  "lastUpdated": "2026-07-09T12:50:13.355Z",
+  "lastUpdated": "2026-07-09T13:11:26.026Z",
   "version": "1.0.0"
 }
