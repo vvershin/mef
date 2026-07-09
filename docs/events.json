@@ -2268,8 +2268,47 @@
       "id": 178,
       "createdAt": "2026-07-09T12:31:46.862Z",
       "updatedAt": "2026-07-09T12:31:46.862Z"
+    },
+    {
+      "title": "Бесплатный разговорный клуб «Coucou, chouchou»",
+      "description": "",
+      "category": "language",
+      "date": "2026-07-11",
+      "time": "14:30",
+      "isFree": true,
+      "registrationUrl": "https://nekrasovka.ru/afisha/11-07-2026/8690",
+      "isFeatured": false,
+      "id": 179,
+      "createdAt": "2026-07-09T12:42:58.441Z",
+      "updatedAt": "2026-07-09T12:42:58.441Z"
+    },
+    {
+      "title": "Клуб дебатов на французском для продолжающих",
+      "description": "",
+      "category": "language",
+      "date": "2026-07-11",
+      "time": "15:00",
+      "isFree": false,
+      "registrationUrl": "https://voroh.ru/event/1036764/",
+      "isFeatured": false,
+      "id": 180,
+      "createdAt": "2026-07-09T12:49:30.592Z",
+      "updatedAt": "2026-07-09T12:49:30.592Z"
+    },
+    {
+      "title": "Пикник Клуба франкофонов Москвы",
+      "description": "",
+      "category": "language",
+      "date": "2026-07-12",
+      "time": "14:00",
+      "isFree": true,
+      "registrationUrl": "https://voroh.ru/event/1036874/",
+      "isFeatured": false,
+      "id": 181,
+      "createdAt": "2026-07-09T12:50:11.292Z",
+      "updatedAt": "2026-07-09T12:50:11.292Z"
     }
   ],
-  "lastUpdated": "2026-07-09T12:31:49.706Z",
+  "lastUpdated": "2026-07-09T12:50:13.355Z",
   "version": "1.0.0"
 }
