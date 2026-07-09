@@ -2242,8 +2242,21 @@
       "id": 176,
       "createdAt": "2026-07-08T12:31:04.151Z",
       "updatedAt": "2026-07-08T12:31:04.151Z"
+    },
+    {
+      "title": "Детский квест по усадьбе Кусково",
+      "description": "Путешествие по «импровизированной Европе» в усадьбе графа Шереметева",
+      "category": "for_kids",
+      "date": "2026-07-12",
+      "time": "14:00",
+      "isFree": true,
+      "registrationUrl": "https://archipelag-publishing.timepad.ru/event/4080543/",
+      "isFeatured": false,
+      "id": 177,
+      "createdAt": "2026-07-09T11:53:03.927Z",
+      "updatedAt": "2026-07-09T11:53:03.927Z"
     }
   ],
-  "lastUpdated": "2026-07-08T12:31:08.463Z",
+  "lastUpdated": "2026-07-09T11:53:06.719Z",
   "version": "1.0.0"
 }
