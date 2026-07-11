@@ -2715,8 +2715,21 @@
       "id": 212,
       "createdAt": "2026-07-11T20:02:15.299Z",
       "updatedAt": "2026-07-11T20:02:15.299Z"
+    },
+    {
+      "title": "Арт-показ «Мужчина и женщина» с обсуждением",
+      "description": "",
+      "category": "cinema",
+      "date": "2026-07-16",
+      "time": "19:30",
+      "isFree": false,
+      "registrationUrl": "https://kinomax.ru/order/3690198",
+      "isFeatured": false,
+      "id": 213,
+      "createdAt": "2026-07-11T20:25:25.363Z",
+      "updatedAt": "2026-07-11T20:25:25.363Z"
     }
   ],
-  "lastUpdated": "2026-07-11T20:02:19.495Z",
+  "lastUpdated": "2026-07-11T20:25:27.958Z",
   "version": "1.0.0"
 }
