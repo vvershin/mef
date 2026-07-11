@@ -2525,12 +2525,12 @@
       "category": "entertainment",
       "date": "2026-07-18",
       "time": "15:00",
-      "isFree": false,
+      "isFree": true,
       "registrationUrl": "https://frankoteka-libfl.timepad.ru/event/4042875/",
       "isFeatured": false,
       "id": 198,
       "createdAt": "2026-07-11T19:46:09.730Z",
-      "updatedAt": "2026-07-11T19:46:09.730Z"
+      "updatedAt": "2026-07-11T19:54:18.326Z"
     },
     {
       "title": "Музыкальная программа «Французский бранч»",
@@ -2570,8 +2570,48 @@
       "id": 201,
       "createdAt": "2026-07-11T19:48:45.328Z",
       "updatedAt": "2026-07-11T19:48:45.328Z"
+    },
+    {
+      "title": "Лекция «Французское с нижегородским»",
+      "description": "История русской моды и характера",
+      "category": "entertainment",
+      "date": "2026-07-21",
+      "time": "19:00",
+      "isFree": false,
+      "registrationUrl": "https://afisha.timepad.ru/moscow/events/lekciya-francuzskoe-s-nizhegorodskim-istoriya-russkoy-mody-i-haraktera-4058742",
+      "isFeatured": false,
+      "id": 202,
+      "createdAt": "2026-07-11T19:51:56.878Z",
+      "updatedAt": "2026-07-11T19:51:56.878Z"
+    },
+    {
+      "title": "Встреча Клуба французских песен",
+      "description": "Музыка и общение на французском",
+      "category": "music",
+      "date": "2026-07-22",
+      "time": "19:00",
+      "isFree": false,
+      "registrationUrl": "https://voroh.ru/event/1036931/",
+      "isFeatured": false,
+      "id": 203,
+      "createdAt": "2026-07-11T19:53:04.596Z",
+      "updatedAt": "2026-07-11T19:53:04.596Z"
+    },
+    {
+      "title": "Спецпоказ «Мужчина и женщина» в летнем кинотеатре",
+      "description": "",
+      "category": "cinema",
+      "date": "2026-07-22",
+      "time": "20:30",
+      "location": "Москино Музеон",
+      "isFree": false,
+      "registrationUrl": "https://mos-kino.ru/event/leto-s-a-one-v-moskino-muzeon/",
+      "isFeatured": false,
+      "id": 204,
+      "createdAt": "2026-07-11T19:54:04.443Z",
+      "updatedAt": "2026-07-11T19:54:04.443Z"
     }
   ],
-  "lastUpdated": "2026-07-11T19:49:00.110Z",
+  "lastUpdated": "2026-07-11T19:54:28.874Z",
   "version": "1.0.0"
 }
