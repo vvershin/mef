@@ -3177,8 +3177,21 @@
       "id": 248,
       "createdAt": "2026-08-03T20:58:21.787Z",
       "updatedAt": "2026-08-03T20:58:21.787Z"
+    },
+    {
+      "title": "Дискуссия «Кого в Того? Язык, герои и сюжеты тоголезской сказки»",
+      "description": "Экспертное обсуждение и чтение сказок",
+      "category": "language",
+      "date": "2026-08-08",
+      "time": "17:00",
+      "isFree": true,
+      "registrationUrl": "https://frankoteka-libfl.timepad.ru/event/4092179/",
+      "isFeatured": false,
+      "id": 249,
+      "createdAt": "2026-08-03T21:02:30.707Z",
+      "updatedAt": "2026-08-03T21:02:30.707Z"
     }
   ],
-  "lastUpdated": "2026-08-03T20:58:51.953Z",
+  "lastUpdated": "2026-08-03T21:02:33.401Z",
   "version": "1.0.0"
 }
