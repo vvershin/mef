@@ -3598,8 +3598,92 @@
       "id": 283,
       "createdAt": "2026-08-09T16:48:16.081Z",
       "updatedAt": "2026-08-09T16:48:16.081Z"
+    },
+    {
+      "title": "Спектакль «Наши за границей» в театре «Сфера»",
+      "description": "",
+      "category": "theater",
+      "date": "2026-09-09",
+      "isFree": false,
+      "registrationUrl": "https://spheratheatre.nakaretnom3.ru/performances/nashi-za-granitsey/",
+      "isFeatured": false,
+      "id": 284,
+      "createdAt": "2026-08-09T16:48:57.399Z",
+      "updatedAt": "2026-08-09T16:48:57.399Z"
+    },
+    {
+      "title": "Лекция-дегустация для любителей «Виноделие Франции»",
+      "description": "",
+      "category": "food",
+      "date": "2026-09-11",
+      "isFree": false,
+      "registrationUrl": "https://winestate.ru/courses/lektsiya-degustatsiya-dlya-lyubiteley-vinodelie-frantsii/",
+      "isFeatured": false,
+      "id": 285,
+      "createdAt": "2026-08-09T16:49:22.880Z",
+      "updatedAt": "2026-08-09T16:49:22.880Z"
+    },
+    {
+      "title": "Экскурсия «Французский променад от Лубянки до Трубной»",
+      "description": "",
+      "category": "entertainment",
+      "date": "2026-09-23",
+      "isFree": false,
+      "registrationUrl": "https://afisha.timepad.ru/moscow/events/ekskursiya-francuzskiy-promenad-ot-lubyanki-do-trubnoy-3949208",
+      "isFeatured": false,
+      "id": 286,
+      "createdAt": "2026-08-09T16:50:17.131Z",
+      "updatedAt": "2026-08-09T16:50:17.131Z"
+    },
+    {
+      "title": "Гастровстреча «Ювелирный ужин Картье»",
+      "description": "",
+      "category": "food",
+      "date": "2026-09-23",
+      "isFree": false,
+      "registrationUrl": "https://www.gedonistica.ru/cartier",
+      "isFeatured": false,
+      "id": 287,
+      "createdAt": "2026-08-09T16:50:50.315Z",
+      "updatedAt": "2026-08-09T16:50:50.315Z"
+    },
+    {
+      "title": "Гастровстреча «Блеск и богема: страницы из жизни Мулен Руж»",
+      "description": "",
+      "category": "food",
+      "date": "2026-09-26",
+      "isFree": false,
+      "registrationUrl": "https://www.gedonistica.ru/moulin-rouge",
+      "isFeatured": false,
+      "id": 288,
+      "createdAt": "2026-08-09T16:51:20.150Z",
+      "updatedAt": "2026-08-09T16:51:20.150Z"
+    },
+    {
+      "title": "Спектакль «Наши за границей» в театре «Сфера»",
+      "description": "",
+      "category": "theater",
+      "date": "2026-09-27",
+      "isFree": false,
+      "registrationUrl": "https://spheratheatre.nakaretnom3.ru/performances/nashi-za-granitsey/",
+      "isFeatured": false,
+      "id": 289,
+      "createdAt": "2026-08-09T16:52:09.951Z",
+      "updatedAt": "2026-08-09T16:52:09.951Z"
+    },
+    {
+      "title": "Французская опера «Кармен» в театре «Новая Опера»",
+      "description": "",
+      "category": "theater",
+      "date": "2026-09-29",
+      "isFree": false,
+      "registrationUrl": "https://novayaopera.ru/plays/opera/karmen/",
+      "isFeatured": false,
+      "id": 290,
+      "createdAt": "2026-08-09T16:52:58.301Z",
+      "updatedAt": "2026-08-09T16:52:58.301Z"
     }
   ],
-  "lastUpdated": "2026-08-09T16:48:18.594Z",
+  "lastUpdated": "2026-08-09T16:53:01.663Z",
   "version": "1.0.0"
 }
