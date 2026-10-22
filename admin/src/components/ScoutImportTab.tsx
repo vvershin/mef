@@ -5,7 +5,7 @@ import { parseScoutReport, scoutEventToDraft, isDuplicateEvent, DraftEvent } fro
 import { TelegramSettings, getWeekRange, buildWeekMessages, sendTelegramMessage } from '../utils/telegram';
 import { format } from 'date-fns';
 import { ru } from 'date-fns/locale';
-import { Upload, Trash2, Edit2, ExternalLink, CheckCircle2, AlertTriangle, Send } from 'lucide-react';
+import { Upload, Trash2, Edit2, ExternalLink, CheckCircle2, AlertTriangle, Send, Settings } from 'lucide-react';
 
 interface ImportRow {
   key: string;
@@ -142,6 +142,18 @@ export const ScoutImportTab: React.FC<ScoutImportTabProps> = ({ existingEvents, 
             {error}
           </div>
         )}
+        <div className="mt-6 flex items-center gap-3">
+          <button
+            onClick={onOpenTgSettings}
+            className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
+          >
+            <Settings size={18} />
+            Настройки Telegram-рассылки
+          </button>
+          {!tgSettings && (
+            <span className="text-xs text-gray-400">токен бота и chat id — не заданы</span>
+          )}
+        </div>
         <div className="mt-6 text-sm text-gray-600">
           <p className="mb-2"><strong>Как получить отчет:</strong></p>
           <ol className="list-decimal list-inside space-y-1">
@@ -169,6 +181,13 @@ export const ScoutImportTab: React.FC<ScoutImportTabProps> = ({ existingEvents, 
           к выгрузке: <strong>{includedCount}</strong>
         </div>
         <div className="flex gap-2">
+          <button
+            onClick={onOpenTgSettings}
+            title="Настройки Telegram-рассылки (токен бота, chat id)"
+            className="flex items-center gap-2 px-3 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
+          >
+            <Settings size={18} />
+          </button>
           <label className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 cursor-pointer">
             <Upload size={18} />
             Другой отчет
