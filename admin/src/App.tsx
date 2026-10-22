@@ -5,22 +5,28 @@ import { PlacesTable } from './components/PlacesTable';
 import { PlaceEditor } from './components/PlaceEditor';
 import { OtherCitiesTable } from './components/OtherCitiesTable';
 import { OtherCityEditor } from './components/OtherCityEditor';
+import { ScoutImportTab } from './components/ScoutImportTab';
 import { Event, Place, OtherCityPlace } from '../../shared/types';
 import {
   loadEvents, saveEvents, downloadJSON, importFromJSON, cleanOldEvents,
   loadPlaces, savePlaces, downloadPlacesJSON, importPlacesFromJSON,
   loadOtherCities, saveOtherCities, downloadOtherCitiesJSON, importOtherCitiesFromJSON,
 } from './utils/storage';
+import { mergeEvents, DraftEvent } from './utils/scoutImport';
 import { GitHubSettingsModal } from './components/GitHubSettingsModal';
+import { TelegramSettingsModal } from './components/TelegramSettingsModal';
 import { GitHubSettings, loadGitHubSettings, publishFileToGitHub, fetchFileFromGitHub } from './utils/github';
+import { TelegramSettings, loadTelegramSettings } from './utils/telegram';
 import { Plus, Download, Trash2, Github, Settings, ChevronDown, FileDown, FileUp } from 'lucide-react';
 
-type Tab = 'events' | 'places' | 'other-cities';
+type Tab = 'events' | 'places' | 'other-cities' | 'scout-import';
 
 function App() {
   const [tab, setTab] = useState<Tab>('events');
   const [ghSettings, setGhSettings] = useState<GitHubSettings | null>(loadGitHubSettings);
   const [showGhSettings, setShowGhSettings] = useState(false);
+  const [tgSettings, setTgSettings] = useState<TelegramSettings | null>(loadTelegramSettings);
+  const [showTgSettings, setShowTgSettings] = useState(false);
   const [publishing, setPublishing] = useState(false);
   const [pulling, setPulling] = useState(false);
   const [fileMenuOpen, setFileMenuOpen] = useState(false);
@@ -199,6 +205,15 @@ function App() {
     e.target.value = '';
   };
 
+  // ── Scout Import ──────────────────────────────────────────
+  const handleScoutExport = (newEvents: DraftEvent[]) => {
+    const res = mergeEvents(events, newEvents);
+    setEvents(res.events);
+    saveEvents(res.events);
+    alert(`✅ Выгружено в базу: добавлено ${res.added}, пропущено дубликатов: ${res.skipped}\n\nОпубликуйте events.json на вкладке «Мероприятия» (GitHub → Опубликовать).`);
+    setTab('events');
+  };
+
   // ── GitHub Publish ─────────────────────────────────────────
   const handlePublish = async () => {
     if (!ghSettings) { setShowGhSettings(true); return; }
@@ -206,6 +221,7 @@ function App() {
       events: { path: 'docs/events.json', data: { events, lastUpdated: new Date().toISOString(), version: '1.0.0' }, label: 'events.json' },
       places: { path: 'docs/places.json', data: { places, lastUpdated: new Date().toISOString(), version: '1.0.0' }, label: 'places.json' },
       'other-cities': { path: 'docs/other-cities.json', data: { places: otherCities, lastUpdated: new Date().toISOString(), version: '1.0.0' }, label: 'other-cities.json' },
+      'scout-import': { path: 'docs/events.json', data: { events, lastUpdated: new Date().toISOString(), version: '1.0.0' }, label: 'events.json' },
     };
     const { path, data, label } = fileMap[tab];
     setPublishing(true);
@@ -226,6 +242,7 @@ function App() {
       events: { path: 'docs/events.json', label: 'events.json' },
       places: { path: 'docs/places.json', label: 'places.json' },
       'other-cities': { path: 'docs/other-cities.json', label: 'other-cities.json' },
+      'scout-import': { path: 'docs/events.json', label: 'events.json' },
     };
     const { path, label } = fileMap[tab];
     setPulling(true);
@@ -255,6 +272,7 @@ function App() {
   // ── Render ────────────────────────────────────────────────
   const isEvents = tab === 'events';
   const isOtherCities = tab === 'other-cities';
+  const isScoutImport = tab === 'scout-import';
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -287,13 +305,21 @@ function App() {
             >
               Другие города ({otherCities.length})
             </button>
+            <button
+              onClick={() => setTab('scout-import')}
+              className={`pb-3 px-1 text-sm font-medium border-b-2 transition-colors ${
+                isScoutImport ? 'border-blue-500 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-700'
+              }`}
+            >
+              Импорт отчета
+            </button>
           </div>
 
           {/* Toolbar */}
           <div className="px-6 py-4 border-b border-gray-200">
             <div className="flex justify-between items-center">
               <h1 className="text-xl font-bold text-gray-900">
-                {isEvents ? 'Управление мероприятиями' : isOtherCities ? 'Другие города' : 'Места в Москве'}
+                {isEvents ? 'Управление мероприятиями' : isOtherCities ? 'Другие города' : isScoutImport ? 'Импорт отчета скаута' : 'Места в Москве'}
               </h1>
               <div className="flex gap-2 items-center">
                 {isEvents && (
@@ -306,6 +332,10 @@ function App() {
                   </button>
                 )}
 
+                {isScoutImport ? (
+                  <span className="text-sm text-gray-500">Действия — внутри вкладки</span>
+                ) : (
+                  <>
                 {/* Файлы dropdown */}
                 <div className="relative">
                   <button
@@ -395,13 +425,22 @@ function App() {
                   <Plus size={18} />
                   {isEvents ? 'Создать мероприятие' : 'Создать место'}
                 </button>
+                  </>
+                )}
               </div>
             </div>
           </div>
 
           {/* Table */}
           <div className="p-6">
-            {isEvents ? (
+            {isScoutImport ? (
+              <ScoutImportTab
+                existingEvents={events}
+                onExport={handleScoutExport}
+                tgSettings={tgSettings}
+                onOpenTgSettings={() => setShowTgSettings(true)}
+              />
+            ) : isEvents ? (
               <EventsTable
                 events={events}
                 onEdit={handleEditEvent}
@@ -428,13 +467,28 @@ function App() {
           {/* Instructions */}
           <div className="px-6 py-4 border-t border-gray-200 bg-gray-50">
             <div className="text-sm text-gray-600">
-              <p className="mb-2"><strong>Инструкция:</strong></p>
-              <ol className="list-decimal list-inside space-y-1">
-                <li>Создайте и отредактируйте {isEvents ? 'мероприятия' : 'места'}</li>
-                <li>Нажмите "Экспорт JSON" для сохранения файла {isEvents ? 'events.json' : isOtherCities ? 'other-cities.json' : 'places.json'}</li>
-                <li>Разместите файл в папке docs/ вашего GitHub репозитория</li>
-                <li>Сделайте git push — Mini App автоматически получит обновления</li>
-              </ol>
+              {isScoutImport ? (
+                <>
+                  <p className="mb-2"><strong>Как это работает:</strong></p>
+                  <ol className="list-decimal list-inside space-y-1">
+                    <li>Загрузите отчет агента-скаута (reports/scout-report-&lt;дата&gt;.json)</li>
+                    <li>Удалите ненужные события 🗑, отредактируйте поля ✏️, отметьте чекбоксами то, что выгружать</li>
+                    <li>«Выгрузить в базу» — события добавятся к мероприятиям (дубликаты пропускаются)</li>
+                    <li>Опубликуйте events.json: вкладка «Мероприятия» → GitHub → Опубликовать</li>
+                    <li>«✨ В Telegram» — сформирует афишу недели (la semaine française) из отмеченных событий текущей недели и отправит ботом подписчику (настройки — при первом клике)</li>
+                  </ol>
+                </>
+              ) : (
+                <>
+                  <p className="mb-2"><strong>Инструкция:</strong></p>
+                  <ol className="list-decimal list-inside space-y-1">
+                    <li>Создайте и отредактируйте {isEvents ? 'мероприятия' : 'места'}</li>
+                    <li>Нажмите "Экспорт JSON" для сохранения файла {isEvents ? 'events.json' : isOtherCities ? 'other-cities.json' : 'places.json'}</li>
+                    <li>Разместите файл в папке docs/ вашего GitHub репозитория</li>
+                    <li>Сделайте git push — Mini App автоматически получит обновления</li>
+                  </ol>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -461,6 +515,14 @@ function App() {
           initial={ghSettings}
           onSave={setGhSettings}
           onClose={() => setShowGhSettings(false)}
+        />
+      )}
+
+      {showTgSettings && (
+        <TelegramSettingsModal
+          initial={tgSettings}
+          onSave={setTgSettings}
+          onClose={() => setShowTgSettings(false)}
         />
       )}
 

@@ -102,3 +102,62 @@ export interface OtherCitiesDatabase {
   lastUpdated: string;
   version: string;
 }
+
+/**
+ * Отчет агента-скаута (см. CONCEPT.md п. 2 и .opencode/agents/scout.md).
+ * Схема повторяет поля Event, чтобы импорт в админке не требовал преобразований,
+ * и добавляет поля происхождения (url, sourceUrl, matchedBy).
+ */
+export interface ScoutReportEvent {
+  /** Название мероприятия — обязательно */
+  title: string;
+  /** Дата проведения YYYY-MM-DD — обязательно, только будущее */
+  date: string;
+  /** Время HH:mm */
+  time?: string;
+  /** Конечная дата для диапазонов, YYYY-MM-DD */
+  endDate?: string;
+  /** Название площадки */
+  location?: string;
+  /** Адрес */
+  address?: string;
+  /** Прямая ссылка на страницу события — обязательно */
+  url: string;
+  /** Страница (список/агрегатор), на которой событие найдено — обязательно */
+  sourceUrl: string;
+  /** Категория из EventCategory, если удалось определить */
+  category?: EventCategory;
+  /** Цена как на сайте ("от 999 ₽", "Бесплатно") */
+  price?: string;
+  isFree?: boolean;
+  /** Короткое описание на русском, 1–2 предложения */
+  description?: string;
+  organizer?: string;
+  imageUrl?: string;
+  /** Почему решено, что событие французское: ключевое слово или признак */
+  matchedBy?: string;
+}
+
+export type ScoutSiteStatus = 'ok' | 'empty' | 'skipped' | 'error';
+
+export interface ScoutSiteNote {
+  /** URL из scout.config.json */
+  url: string;
+  status: ScoutSiteStatus;
+  /** Сколько событий взято с сайта / причина статуса */
+  comment?: string;
+}
+
+export interface ScoutReport {
+  /** Дата запуска агента, ISO 8601 UTC */
+  generatedAt: string;
+  /** Путь к конфигу запуска */
+  scoutConfig: string;
+  /** Тема поиска из конфига */
+  theme: string;
+  /** Город поиска из конфига */
+  city: string;
+  events: ScoutReportEvent[];
+  /** Итог обхода каждого сайта из конфига — обязательно для всех сайтов */
+  siteNotes: ScoutSiteNote[];
+}

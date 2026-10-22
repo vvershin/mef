@@ -1,0 +1,153 @@
+{
+  "city": "Москва",
+  "theme": {
+    "title": "Французская тематика",
+    "description": "Мероприятия о Франции, французском языке, культуре, искусстве, кино, музыке, литературе, вине и гастрономии. Форматы: мастер-классы, кинопоказы, концерты, выставки, лекции, дегустации, экскурсии, разговорные клубы, спектакли и т.д.",
+    "keywords": [
+      "французск",
+      "франция",
+      "франции",
+      "париж",
+      "прованс",
+      "ницца",
+      "марсель",
+      "лион",
+      "эльзас",
+      "бургунд",
+      "бордо",
+      "шампань",
+      "луара",
+      "долина роны",
+      "комеди франсез",
+      "мольер",
+      "гюго",
+      "бодлер",
+      "верлен",
+      "рембо",
+      "пруст",
+      "камю",
+      "сартр",
+      "дюма",
+      "мопассан",
+      "золя",
+      "флобер",
+      "стендаль",
+      "бальзак",
+      "экзюпери",
+      "сезанн",
+      "моне",
+      "дега",
+      "ренуар",
+      "роден",
+      "матисс",
+      "сати",
+      "дебюсси",
+      "равель",
+      "бизе",
+      "оффенбах",
+      "french",
+      "france",
+      "français",
+      "francais",
+      "paris",
+      "bordeaux",
+      "burgundy",
+      "champagne",
+      "loire",
+      "alsace",
+      "rhône",
+      "rhone"
+    ]
+  },
+  "sites": [
+    {
+      "url": "https://rgub.ru/schedule/?year=2026",
+      "allEventsRelevant": false,
+      "note": "РГБМ (библиотека для молодёжи): общая афиша — фильтровать по теме."
+    },
+    {
+      "url": "https://nekrasovka.ru/afisha",
+      "allEventsRelevant": false,
+      "note": "Библиотека Некрасова: общая афиша — фильтровать по теме."
+    },
+    {
+      "url": "https://afisha.timepad.ru/moscow/events",
+      "allEventsRelevant": false,
+      "note": "Агрегатор. Ищи по ключевым словам (поиск по сайту или публичный API TimePad). Важно: у события бери ссылку на страницу самого события."
+    },
+    {
+      "url": "https://ifrussiemoscou.timepad.ru/events/all/",
+      "allEventsRelevant": true,
+      "note": "Французский институт в Москве (организация на TimePad) — все события релевантны. Даты серий уточняй через iCal-экспорт на странице события. Добавлен по результатам тестового сбора 2026-10-22."
+    },
+    {
+      "url": "https://kudago.com/search/",
+      "allEventsRelevant": false,
+      "note": "Агрегатор, страница поиска без запроса. Используй поиск KudaGo по ключевым словам темы или публичный API KudaGo (location=msk)."
+    },
+    {
+      "url": "https://frenchiemoscou.ru/societe",
+      "allEventsRelevant": true,
+      "note": "Школа французского языка Frenchie, клубные события (лекции, завтраки, кинопросмотры, мастер-классы) — всё релевантно. Tilda-страница: если события не видны, попробуй websearch или страницу клуба целиком."
+    },
+    {
+      "url": "https://cfmoscou.tilda.ws/programme",
+      "allEventsRelevant": true,
+      "note": "Клуб Франкофонов Москвы — всё релевантно. Год в датах не указан — вычисляй ближайший будущий. Регистрация на внешних сервисах (voroh.ru, arbatkino.ru, timepad): url события = внешняя ссылка «Информации и регистрация», sourceUrl = эта страница."
+    },
+    {
+      "url": "https://libfl.ru/ru/events",
+      "allEventsRelevant": false,
+      "note": "Библиотека иностранной литературы им. Рудомино: общая афиша — фильтровать по теме."
+    },
+    {
+      "url": "https://www.jazzmap.ru/afisha/",
+      "allEventsRelevant": false,
+      "note": "Джазовая афиша: релевантны события с французскими музыкантами/коллективами или французской программой."
+    },
+    {
+      "url": "https://novikovspace.com/school/masterclasses",
+      "allEventsRelevant": false,
+      "note": "Мастер-классы школы Novikov Space — фильтровать по теме (французская тема/лекторы)."
+    },
+    {
+      "url": "https://culinaryon.ru/calendar/",
+      "allEventsRelevant": false,
+      "note": "Кулинарные мастер-классы — релевантна французская кухня."
+    },
+    {
+      "url": "https://moscowwalking.ru/excursions/",
+      "allEventsRelevant": false,
+      "note": "Экскурсии — релевантна французская Москва, французская история и архитектура."
+    },
+    {
+      "url": "https://www.gedonistica.ru/",
+      "allEventsRelevant": false,
+      "note": "Клуб гедонистики (вино, гастрономия) — релевантны события о французских винах/гастрономии."
+    },
+    {
+      "url": "https://wineproject.ru/blijaishie-masterclassi",
+      "allEventsRelevant": false,
+      "note": "Винные мастер-классы — релевантны дегустации французских вин/регионов."
+    },
+    {
+      "url": "https://winestate.ru/courses/lektsiya-degustatsiya-dlya-lyubiteley-vinodelie-frantsii/",
+      "allEventsRelevant": true,
+      "note": "Страница конкретной лекции-дегустации о виноделии Франции — релевантна вся страница (все ближайшие даты)."
+    },
+    {
+      "url": "https://simplewine.ru/events/",
+      "allEventsRelevant": false,
+      "note": "Афиша SimpleWine — релевантны события о французских винах/регионах."
+    },
+    {
+      "url": "https://spheratheatre.nakaretnom3.ru/performances/nashi-za-granitsey/",
+      "allEventsRelevant": true,
+      "note": "Страница конкретного спектакля «Наши за границей» (театр «Сфера») — путешествие в Париж. Возьми каждую ближайшую дату показа отдельным событием; url = ссылка на покупку билета (tickets.mos.ru) или страница спектакля."
+    }
+  ],
+  "report": {
+    "dir": "reports",
+    "filePrefix": "scout-report"
+  }
+}
